@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 class Sort {
+    
     // Insertion Sort
     public void insertionSort(int[] arr){
         int i, j, temp;
@@ -14,6 +15,7 @@ class Sort {
             }
         }
     }
+
     // Selection Sort
     public void selectionSort(int[] arr){
         int i, j, temp;
@@ -31,6 +33,24 @@ class Sort {
         }
     }
 
+    // Bubble Sort
+    public void bubbleSort(int[] arr){
+        int i, temp;
+        int j=0;
+        boolean swapped = true;
+        while (swapped){
+            j++;
+            swapped = false;
+            for (i=0; i < arr.length - j; i++){
+                if (arr[i] > arr[i+1]){
+                    temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                    swapped = true;
+                }
+            }
+        }
+    }
 
     public static void main(String[] args){
         Sort s = new Sort();
@@ -41,5 +61,8 @@ class Sort {
         int[] arr2 = arr.clone();
         s.selectionSort(arr2);
         System.out.println(Arrays.toString(arr2));
+        int[] arr3 = arr.clone();
+        s.bubbleSort(arr3);
+        System.out.println(Arrays.toString(arr3));
     }
 }

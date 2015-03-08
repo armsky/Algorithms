@@ -19,11 +19,31 @@ def selectionSort(aList):
             aList[i] = aList[minIndex]
             aList[minIndex] = temp
 
+# O(n2), stable and adaptive.
+# O(n) when the array is almost sorted. Don't chek the array is already sorted on every step.
+def bubbleSort(aList):
+    swapped = True
+    j = 0
+
+    while (swapped):
+        swapped = False
+        j = j+1
+        for i in range(len(aList)-j):
+            if aList[i] > aList[i+1]:
+                temp = aList[i]
+                aList[i] = aList[i+1]
+                aList[i+1] = temp
+                swapped = True
+
+
+
 aList = [21, 2, 45, 103, 0, 64, 0]
 insertionSort(aList)
 print aList
 aList = [21, 2, 45, 103, 0, 64, 0]
 selectionSort(aList)
 print aList
-
+aList = [21, 2, 45, 103, 0, 64, 0]
+bubbleSort(aList)
+print aList
 
