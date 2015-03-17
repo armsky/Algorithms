@@ -1,11 +1,11 @@
 # Merge Sort
-def mergeSort(aList):
+def mergesort(aList):
     if len(aList) <= 1:
         return aList
     else:
         mid = len(aList)/2
-        left = mergeSort(aList[0:mid])
-        right = mergeSort(aList[mid:])
+        left = mergesort(aList[0:mid])
+        right = mergesort(aList[mid:])
         # If two sub-list already sorted
         if left[-1] <= right[0]:
             return left + right
@@ -32,7 +32,7 @@ def merge(left, right):
 
 # Quick sort
 # O(n log n), divide-and-conquer, in-place, short inner loop
-def quickSort(a, left, right):
+def quicksort(a, left, right):
     i = left
     j = right
     pivot = a[(left + right) / 2]
@@ -43,20 +43,57 @@ def quickSort(a, left, right):
         while (a[j] > pivot):
             j = j - 1
         if (i <= j):
-            temp = a[i]
-            a[i] = a[j]
-            a[j] = temp
+            # swap a[i], a[j]
+            a[i], a[j] = a[j], a[i]
             i = i + 1
             j = j - 1
 
     if (left < j):
-        quickSort(a, left, j)
+        quicksort(a, left, j)
     if (i < right):
-        quickSort(a, i, right)
+        quicksort(a, i, right)
+
+
+# Heapsort
+def heapsort(a):
+    def swap(a, i, j):
+       a[i], a[j] = a[j], a[i]
+
+    def siftdown(a, i, size):
+        left = 2*i +1
+        right = 2*i +2
+        largest = i
+
+        if left < size-1 and a[left] > a[i]:
+            largest = left
+        if right < size-1 and a[right] > a[largest]:
+            largest = right
+        if largest != i:
+            swap(a, i, largest)
+            siftdown(a, largest, size)
+
+    # a bottom-up manner
+    def heapify(a, size):
+        p = size/2 - 1
+        while p >= 0:
+            siftdown(a, p, size)
+            p -= 1
+
+    size = len(a)
+    heapify(a, size)
+    end = size - 1
+    while end > 0:
+        swap(a, 0, end)
+        siftdown(a, 0, end)
+        end -= 1
+
 
 
 aList = [21, 2, 45, 103, 0, 64, 0]
-print mergeSort(aList)
+print mergesort(aList)
 aList = [21, 2, 45, 103, 0, 64, 0]
-quickSort(aList, 0, len(aList)-1)
+quicksort(aList, 0, len(aList)-1)
+print aList
+aList = [21, 2, 45, 103, 0, 64, 0]
+heapsort(aList)
 print aList
