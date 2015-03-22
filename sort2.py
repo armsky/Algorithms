@@ -1,4 +1,7 @@
 # Merge Sort
+# divide and conquer
+# Time: O(n log n), O(n log n), O(n log n)
+# Space: O(n)
 def mergesort(aList):
     if len(aList) <= 1:
         return aList
@@ -32,6 +35,8 @@ def merge(left, right):
 
 # Quick sort
 # O(n log n), divide-and-conquer, in-place, short inner loop
+# Time: O(n log n), O(n log n), O(n^2)
+# Space: O(log n)
 def quicksort(a, left, right):
     i = left
     j = right
@@ -55,6 +60,11 @@ def quicksort(a, left, right):
 
 
 # Heapsort
+# O(n·lg(n)) in-place sort, but is not stable.
+# Heapsort is not stable because operations on the heap can change the relative order of equal items.
+# Time: O(n log n), O(n log n), O(n log n)
+# Space: O(1)
+#* time complexity of building a heap is: O(n)
 def heapsort(a):
     def swap(a, i, j):
        a[i], a[j] = a[j], a[i]
