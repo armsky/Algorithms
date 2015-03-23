@@ -1,11 +1,11 @@
 """
-1. Difference between Array and List
-Array is collection of homogeneous elements.
-List is collection of heterogeneous elements.
+A heap is a tree-like structure.
+Heaps are arrays for which a[k] <= a[2*k+1] and a[k] <= a[2*k+2] for all k,
+counting elements from 0.
 
-For Array memory allocated is static and continuous.
-For List memory allocated is dynamic and Random.
-
-Array: User need not have to keep in track of next memory allocation.
-List: User has to keep in Track of next location where memory is allocated.
+min heap: the smallest key is always at the front
+max heap: the largest key is always at the front
 """
+
+#A priority queue is common use for a heap
+

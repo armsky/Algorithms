@@ -1,57 +1,64 @@
-# O(n^2), insert first element in unsorted part to the right place of sorted place.
-# Time: O(n), O(n^2), O(n^2)
-# Space: O(1)
-def insertionSort(aList):
-    for i in range(1, len(aList)):
-        curValue = aList[i]
-        p = i
+"""
+         1
+        / \
+       /   \
+      /     \
+     2       3
+    / \     /
+   4   5   6
+  /       / \
+ 7       8   9
+The correct output should look like this:
+preorder:    1 2 4 7 5 3 6 8 9
+inorder:     7 4 2 5 1 8 6 9 3
+postorder:   7 4 5 2 8 9 6 3 1
+level-order: 1 2 3 4 5 6 7 8 9
 
-        while(p > 0 and curValue < aList[p-1]):
-            aList[p] = aList[p-1]
-            p = p-1
-        aList[p] = curValue
+"""
+# pre-order, in-order, and post-order tree traversal are called Depth First Search (DFS),
+# since they visit the tree by proceeding deeper and deeper until it reaches the leaf nodes.
+# Usually use recursion, or use _stack_ to simulate recursion by using iterative methods
 
-# O(n2), select the minimum from the unsorted part.
-# Time: O(n^2), O(n^2), O(n^2)
-# Space: O(1)
-def selectionSort(aList):
-    for i in range(len(aList)):
-        minIndex = i
-        for j in range(i+1, len(aList)):
-            if aList[j] < aList[minIndex]:
-                minIndex = j
-        if minIndex != i:
-            temp = aList[i]
-            aList[i] = aList[minIndex]
-            aList[minIndex] = temp
+# level-order traversal is Breadth First Search (BFS), since it visits the nodes level by level.
 
-# O(n2), stable and adaptive.
-# O(n) when the array is almost sorted. Don't chek the array is already sorted on every step.
-# Time: O(n), O(n^2), O(n^2)
-# Space: O(1)
-def bubbleSort(aList):
-    swapped = True
-    j = 0
+#++++++++++++++++++\
 
-    while (swapped):
-        swapped = False
-        j = j+1
-        for i in range(len(aList)-j):
-            if aList[i] > aList[i+1]:
-                temp = aList[i]
-                aList[i] = aList[i+1]
-                aList[i+1] = temp
-                swapped = True
+# Find the maximum height (depth) of a Binary Tree
+def maxHeight(node):
+    if node is None:
+        return 0
+    left_height = maxHeight(node.left)
+    right_height = maxHeight(node.right)
+    if left_height > right_height:
+        return left_height + 1
+    else:
+        return right_height + 1
 
+def max_iterative(node):
+    # Any DFS could be modified to solve this problem
+    # Or use BFS, record how many levels
+    stack = []
+    height = 0
+    while node or stack:
+        if node:
+            stack.append(node)
+            if len(stack) > height:
+                height = len(stack)
+            node = node.left
+        else:
+            node = stack.pop()
+            self.visitor(node.data)
+            node = node.right
+    return height
 
+# Find longest path of two leaves (diameter)
+def diameter(node):
+    if node is None:
+        return 0
+    lheight = maxHeight(node.left)
+    rheight = manHeight(node.right)
 
-aList = [21, 2, 45, 103, 0, 64, 0]
-insertionSort(aList)
-print aList
-aList = [21, 2, 45, 103, 0, 64, 0]
-selectionSort(aList)
-print aList
-aList = [21, 2, 45, 103, 0, 64, 0]
-bubbleSort(aList)
-print aList
+    ldiameter = diameter(node.left)
+    rdiameter = diameter(node.right)
 
+    return max(lheight+rheight+1, max(ldiameter, rdiameter))
