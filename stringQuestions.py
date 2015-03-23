@@ -73,7 +73,7 @@ def isPangram(s):
         return "not pangram"
 
 
-# Bigger is Greater (hacker rank)
+# Bigger is Greater, next bigger permuttion (hacker rank)
 def bigger(s):
     # Find the first index that can be swap
     i = len(s) - 2
