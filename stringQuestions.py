@@ -94,15 +94,6 @@ def bigger(s):
 # Given a list of distinct integers, count the number of ordered pairs
 # of integers in the list such that the first is larger than the second.
 
-s = "This is a string! "
-print reverse2(s)
-s = "THHT"
-s1 = "HUYHOUH"
-#print isPalindrome(s)
-#print isPalindrome(s1)
-expressions = ["}[]{}", "{}[]()", "{[()()]}", "{[()]}{}", "{([})}]","[][{(])}"]
-#for e in expressions:
-#    print isPaired(e)
-s = "gojh"
-r = "msym"
-bigger(r)
+"""
+Longest increasing subsequence: to find the longest increasing subsequence of a given sequence.
+"""
