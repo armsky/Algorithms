@@ -1,6 +1,6 @@
 """
-1. Given the root of a binary search tree and 2 numbers min and max, 
-trim the tree such that all the numbers in the new tree are between min and max (inclusive). 
+1. Given the root of a binary search tree and 2 numbers min and max,
+trim the tree such that all the numbers in the new tree are between min and max (inclusive).
 The resulting tree should still be a valid binary search tree.
 """
 # Remove all nodes bot between in that range by performing a post-order traversal.
@@ -16,3 +16,8 @@ def trimBST(node, minVal, maxVal):
         return node.right
     else:
         return node.left
+
+
+"""
+2. Create a balanced binary search tree from a sorted array of integers
+"""
