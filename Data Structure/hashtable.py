@@ -21,19 +21,18 @@ Space: O(n)
 
 """
 """
-Differenc between hash table and hash map:
+Difference between hash table and hash map:
 - map:
   1. no need to have a hash function, don't need to handle collision,
     O (log N) insert and lookup, insert key/data in sorted order. (If you need
     to find a max/min element, use map instead of hash table.)
   2. Map also stores key/value pair, so doesn't allocate huge space with empty
     slots.
-- table:
-  1. transforms a key into position within a table. O(1) lookup and insert
+- table: 
+  1. use a hash function to compute an key to it's bucket. doesn't insert
+    hashed key/data in sorted order. It has O(1) lookup and insert
     in most cases.
-  2. use a hash function to compute an key to it's bucket. doesn't insert
-    hashed key/data in sorted order.
-  3. If the initial table size is not enough, need to resize the table, and
+  2. If the initial table size is not enough, need to resize the table, and
     transfet teh keys form old table to new table by a new hash function.
 
 """

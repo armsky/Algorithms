@@ -1,3 +1,8 @@
+"""
+A linked list is a dynamic data structure. The number of nodes in a list is not fixed and can grow and shrink on demand.
+It is useful when dealling with an unknown number of objects 
+"""
+
 class Node:
     def __init__(self, data, next, prev):
         self.data = data
