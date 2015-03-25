@@ -7,7 +7,7 @@ counting elements from 0.
 min heap: the smallest key is always at the front
 max heap: the largest key is always at the front
 
-            Insert      Find Min
+Time        Insert      Find Min
 Linked List O(1)        O(n)
 BST         O(log n)    O(log n)
 Binary heap O(log n)    O(log n)

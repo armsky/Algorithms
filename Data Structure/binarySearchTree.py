@@ -59,7 +59,7 @@ class BST:
         current = self.root
         while current:
             # Do not allow dups here
-            if node.data == data:
+            if node.data == current.data:
                 return False
             elif node.data < current.data:
                 if current.left == None:
@@ -186,7 +186,7 @@ class BST:
             more += [node.left, node.right]
             self.visitor(node.data)
         if more:
-            levelorder_recursivemore[0], more[1:], self.visitor)
+            self.levelorder_recursivemore[0], more[1:], self.visitor)
 
     def levelorder_iterative(self, root, visitor = printwithspace):
         # Use two queues to store current level's nodes and next level's nodes
