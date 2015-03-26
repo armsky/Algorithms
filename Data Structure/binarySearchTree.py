@@ -203,3 +203,53 @@ class BST:
                 if cq is None:
                     cq, nq = nq, cq
 
+"""
+The traversal above all use recursive or stack (O(n) space used)
+Morris will only need O(1) space and O(n) time, (Each edge is traversed
+at most 3 times and there are n-1 edges in a tree, hence the O(n). )
+Benifits: don't need extra predecessor or successor pointer
+"""
+    def morris_inorder(self, root, visitor = printwithspace)):
+        cur = root
+        prev = None
+        while cur is not None:
+            # If left is none, print it
+            if cur.left is None:
+                self.visitor(cur.data)
+                cur = cur.right
+            else:
+                # Find predecessor
+                prev = cur.left
+                while prev.right is not None and prev.right != cur:
+                    # untill prev is the predecessor of root
+                    prev = prev.right
+                # make prev.right -> cur, and cur = cur.left
+                if prev.right is None:
+                    prev.right = cur
+                    cur = cur.left
+                # restore the tree (right point to none), update cur
+                else:
+                    prev.right = None
+                    self.visitor(cur.data)
+                    cur = cur.right
+
+    # Only one line different: the print
+    def morris_preoder(self, root, visitor = printwithspace)):
+        cur = root
+        prev = None
+        while cur is not None:
+            if cur.left is None:
+                self.visitor(cur.data)
+                cur = cur.right
+            else:
+                prev = cur.left
+                while prev.right is not None and prev.right != cur:
+                    prev = prev.right
+                if prev.right is None:
+                    self.visitor(cur.data) # the only difference
+                    prev.right = cur
+                    cur = cur.left
+                else:
+                    prev.right = None
+                    cur = cur.right
+
