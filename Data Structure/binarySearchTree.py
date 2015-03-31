@@ -173,9 +173,9 @@ class BST:
                 node = temp.pop()
                 stack.append(node)
                 if node.left:
-                    temp.append(node)
+                    temp.append(node.left)
                 if node.right:
-                    temp.append(node)
+                    temp.append(node.right)
             while stack:
                 self.visitor(stack.pop().data)
 
@@ -186,7 +186,7 @@ class BST:
             more += [node.left, node.right]
             self.visitor(node.data)
         if more:
-            self.levelorder_recursivemore[0], more[1:], self.visitor)
+            self.levelorder_recursive(more[0], more[1:], self.visitor)
 
     def levelorder_iterative(self, root, visitor = printwithspace):
         # Use two queues to store current level's nodes and next level's nodes

@@ -4,10 +4,10 @@
 """
 # Not a efficient way
 def isPrime(num):
-    return all(num % i for i in xrange(2, num))
+    return all(num % i for i in xrange(2, num)) # all(): return True is all element in () are true
 # a little more efficient
 def isPrime(num):
-    return all(num % i for i in xrange(2, math.sqrt(num)+1))
+    return all(num % i for i in xrange(2, math.sqrt(num)+1), 2)
 
 def primeFactor(num):
     result = []
@@ -36,3 +36,37 @@ def reversDigits(num):
         return True
     else:
         return False
+
+"""
+3.Check if array of int contain two number that sum equal to target number
+- If n is small, compare each pair, O(n^2)
+- If n is big, sort (n log n) and find O(n)
+"""
+def find_small(a, target):
+    for i in xrange(len(a)):
+        for j in xrange(len(a)):
+            if j != i and a[i] + a[j]:
+                print a[i], a[j]
+
+def find_big(a, target):
+    a = sorted(a)
+    left = 0
+    right = len(a) - 1
+    while left < right:
+        if a[left] + a[right] == target:
+            print a[left], a[right]
+        elif a[left] + a[right] > target:
+            right -= 1
+        else:
+            left += 1
+
+"""
+4. Number of trailing zeros in a number factorial.
+"""
+# I. Brute force, calculate and then count the zeros.
+# II. Find multiple of 5, 25, 125s
+def find_zeros(n):
+    count = 0
+    count = count + n/5 + n/25 + n/125 + ...
+    return count
+

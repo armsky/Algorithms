@@ -90,10 +90,8 @@ def bigger(s):
         second_part = sorted(ns[i+1:])
         r = first_part + second_part
         print ''.join(r)
-
+"""
 # Given a list of distinct integers, count the number of ordered pairs
 # of integers in the list such that the first is larger than the second.
+"""
 
-"""
-Longest increasing subsequence: to find the longest increasing subsequence of a given sequence.
-"""
