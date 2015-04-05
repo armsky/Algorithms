@@ -12,6 +12,6 @@ I. For overlapping problem, we have:
         solution to a subproblem, we first look into the lookup table before calculate, it
         the value not there, we calculate and put the result into table
     b. Tabulation (Bottom Up): build a table by filling entries one by one
-II.For Optimal Substructure: f optimal solution of the given problem can be obtained
+II.For Optimal Substructure: a optimal solution of the given problem can be obtained
    by using optimal solutions of its subproblems.
    A shortest path problem can use this way, but longest path cannot

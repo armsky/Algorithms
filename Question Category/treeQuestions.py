@@ -212,3 +212,30 @@ def isBST(root):
                 return False
             node = node.right
     return True
+
+"""
+7. Design a data structure to implement a phone book. Can search by name or number
+Use Trie:
+"""
+class Trie:
+    def __init__(self):
+        self.root = {}
+
+    def add(self, name, number):
+        # Add name/number to the Trie
+        node = self.root
+        for char in name:
+            if char not in node:
+                node[char] = {}
+            node = node[char]
+        node["Number"] = number
+
+    def find(self, prefix):
+        # Return node after consuming given prefix
+        node = self.root
+        for char in prefix:
+            if char no in node.keys():
+                return None
+            node = node[char]
+        return node
+# Then a hashtable for numbers as key, names as value

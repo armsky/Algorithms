@@ -16,4 +16,37 @@
 # Use two pointers to find loop in second list, remove the circle
 # O(m+n) time, O(1) space
 
+"""
+2. Reverse a linked list
+"""
+# I. Iterative method
+def reverse(head):
+    if head is None or head.next is None:
+        return head
+    second = head.next
+    third = second.next
+    second.next = head
+    head.next = None
+
+    cur = third
+    pre = second
+    while cur is not None:
+        nex = cur.next
+        cur.next = pre
+        pre = cur
+        cur = nex
+    head = pre
+    return head
+
+# II. Recursive method
+def reverse(cur):
+    if cur is None:
+        return
+    if cur.next is None:
+        head = cur
+        return
+    reverse(cur.next)
+    cur.next.next = cur
+    # Set "old" next pointer to None
+    cur.next = None
 

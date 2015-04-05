@@ -43,7 +43,7 @@ def _lis(arr, n, max_ref):
         max_ref = max_ending_here
     return max_ending_here
 
-# DP implementation
+# DP implementation, O(n^2)
 def lis(arr):
     n = len(arr)
     lis = [1]*n # Initialize LIS values
@@ -56,22 +56,36 @@ def lis(arr):
     return max(lis)
 
 # A O(n log n) approach:
+# Replace the second for loop, do a binary search, use c[] as:
+# smallest end-element of an i-length increasing subsequence of original sequence
+# C[] should remain sorted, find a c[j]<=arr[i]<=c[j+1]
 def lis(arr):
     n = len(arr)
-    length = 1 # alway points to next empty slot, this is also the result
-    tailtable = []
-    tailtable.append(arr[0])
-    for i in xrange(1, n):
-        # case 1: if arr[i] is the smallest, starts new list of length 1
-        if arr[i] < tailtable[0]:
-            tailtable[0] = arr[i]
-        # case 2: if arr[i] is the largest
-        elif arr[i] > tailtable[length-1]:
-            tailtable.append(arr[i])
-            length += 1
+    lis = [1]*n
+    c = [arr[0]]
+    sz = 1
+    for i in xrange(n):
+        # Case 1: update the smallest value of arr
+        if arr[i] < c[0]:
+            c[0] = arr[i]
+        # Case 2: append the largest element so far to c[]
+        elif arr[i] > c[sz-1]:
+            c[sz] = arr[i]
+            sz += 1
+        # Case 3: suppose there is a subsequence ending in arr[i]
+        # Find the place in c[] and update it
         else:
+            c[cell_index(arr, 0, sz-1, arr[i])] = arr[i]
 
-
+def cell_index(arr, left, right, val):
+    # Binary search to find the index of arr[i] should put into c[]
+    while right - left > 1:
+        m = (left + right)/2
+        if arr[m] >= val:
+            right = m
+        else:
+            left = m
+    return right
 
 """
 3. Rotate array by d elements.
@@ -115,7 +129,7 @@ def maxDiff(a):
             min_num = a[i]
     return max_diff
 
-# III. Store adjacent diff into another array, then finf the maximum sum subarray
+# III. Store adjacent diff into another array, then find the maximum sum subarray
 # O(n) time, O(n) space
 def maxDiff(a):
     da = []
@@ -128,3 +142,17 @@ def maxDiff(a):
         if max_diff < da[i]
             max_diff < da[i]
     return max_diff
+
+"""
+5. randomizing an array (shuffle algorithm)
+"""
+# Fisher-Yates: start from the last element, swap it with randomly selected front one.
+# O(n) time
+import random
+def shuffle(arr):
+    n = len(arr)
+
+    for i in xrange(n-1, 0, -1)
+        # Random generate an index [0, i]
+        j = random.randrange(0, i+1)  #randrange will do [a, b)
+        arr[i], arr[j] = arr[j], arr[i]

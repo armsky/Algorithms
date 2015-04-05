@@ -70,3 +70,18 @@ def find_zeros(n):
     count = count + n/5 + n/25 + n/125 + ...
     return count
 
+"""
+5. Convert decimal numbers to binary and vice-versa
+"""
+def dec_to_bin(dec):
+    i = 1
+    s = 0
+    while dec > 0:
+        rem = dec % 2
+        s = s + (i*rem)
+        dec = dec/2
+        i = i*10
+    return s
+
+def bin_to_dec(binn):
+
