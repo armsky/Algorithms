@@ -21,8 +21,34 @@ But then the structure need to be adjusted, need O(log n) time
 
 # Stack, Queue and Priority queue are abstract data type,
 # but Heap is a specific data structure.
-
 def heapsort(a):
+    def heapify(a):
+        start = len(a)/2 -1
+        while start >= 0:
+            sift(start, len(a))
+            start -= 1
+
+    def sift(root, n):
+        while root*2 + 1 < n:
+            child = root*2 + 1
+            if child < n-1 and a[child] < a[child+1]:
+                child += 1
+            if a[root] < a[child]:
+                a[root], a[child] = a[child], a[root]
+                root = child
+            else:
+                return
+    heapify(a)
+    print a
+    print "###"
+    end = len(a)-1
+    while end > 0:
+        print a
+        a[end], a[0] = a[0], a[end]
+        sift(0, end)
+        end -= 1
+
+def heapsort_recursive(a):
     def swap(a, i, j):
        a[i], a[j] = a[j], a[i]
 
@@ -54,3 +80,33 @@ def heapsort(a):
         siftdown(a, 0, end)
         end -= 1
 
+def min_heapify(a):
+    def sift(a, i, n):
+        l = 2*i +1
+        r = 2*i +2
+        sm = i
+        if l < n-1 and a[l] < a[i]:
+            sm = l
+        if r < n-1 and a[r] < a[sm]:
+            sm = r
+        if sm != i:
+            a[i], a[sm] = a[sm], a[i]
+            sift(a, sm, n)
+
+    def heapify(a, size):
+        p = size/2 - 1
+        while p >= 0:
+            sift(a, p, size)
+            p -= 1
+
+    n = len(a)
+    heapify(a, n)
+    end = n - 1
+    while end > 0:
+        sift(a, 0, end)
+        end -= 1
+
+
+a = [100,-10,-8,0,1,3,11,35,68,500]
+min_heapify(a)
+print a

@@ -43,25 +43,24 @@ def _lis(arr, n, max_ref):
         max_ref = max_ending_here
     return max_ending_here
 
-# DP implementation, O(n^2)
+# b. DP implementation, O(n^2)
 def lis(arr):
     n = len(arr)
-    lis = [1]*n # Initialize LIS values
+    result = [1]*n # Initialize LIS values
     # Compute optimized LIS in Bottom Up manner
     for i in xrange(1, n):
         for j in xrange(0, i):
-            if arr[i] > arr[j] and lis[i] < lis[j] +1:
-                lis[i] = lis[j] +1
+            if arr[i] > arr[j] and result[i] < result[j] +1:
+                result[i] = result[j] +1
     # Pick the maximum of lis
-    return max(lis)
+    return max(result)
 
-# A O(n log n) approach:
+# c. A O(n log n) approach:
 # Replace the second for loop, do a binary search, use c[] as:
 # smallest end-element of an i-length increasing subsequence of original sequence
 # C[] should remain sorted, find a c[j]<=arr[i]<=c[j+1]
 def lis(arr):
     n = len(arr)
-    lis = [1]*n
     c = [arr[0]]
     sz = 1
     for i in xrange(n):
@@ -75,13 +74,14 @@ def lis(arr):
         # Case 3: suppose there is a subsequence ending in arr[i]
         # Find the place in c[] and update it
         else:
-            c[cell_index(arr, 0, sz-1, arr[i])] = arr[i]
+            c[cell_index(c, 0, sz-1, arr[i])] = arr[i]
+    return len(c)
 
-def cell_index(arr, left, right, val):
+def cell_index(c, left, right, val):
     # Binary search to find the index of arr[i] should put into c[]
     while right - left > 1:
         m = (left + right)/2
-        if arr[m] >= val:
+        if c[m] >= val:
             right = m
         else:
             left = m

@@ -1,5 +1,8 @@
 from heapAndStack import *
 
+"""
+1. Reverse a string
+"""
 def reverse(s):
     r = list()
     for i in xrange(len(s)-1, -1, -1):
@@ -12,6 +15,9 @@ def reverse2(s):
         r.append(s[i])
     return ''.join(r)
 
+"""
+2. check if it is a palindrome
+"""
 def isPalindrome(s):
     if s:
         r = list()
@@ -25,6 +31,9 @@ def isPalindrome(s):
     else:
         return True
 
+"""
+3. Check if the braces are in pairs
+"""
 # Use Stack
 def isPairedBraces(s):
     if len(s) >= 1:
@@ -72,8 +81,10 @@ def isPangram(s):
     else:
         return "not pangram"
 
-
-# Bigger is Greater, next bigger permuttion (hacker rank)
+"""
+4. Find next bigger permutation
+"""
+# Bigger is Greater, next bigger permutation (hacker rank)
 def bigger(s):
     # Find the first index that can be swap
     i = len(s) - 2
@@ -93,5 +104,8 @@ def bigger(s):
 """
 # Given a list of distinct integers, count the number of ordered pairs
 # of integers in the list such that the first is larger than the second.
+"""
+"""
+5. Convert an roman numeral to an integer.
 """
 

@@ -41,6 +41,7 @@ def constrctTree(treeroot, listroot, n):
 # root to the left subtree, and last recursively build the right subtree.
 # O(n) time
 def constructTree(listhead, n):
+    # Base case
     if n <= 0:
         return None
     leftnode = constructTree(listhead, n/2)
@@ -50,6 +51,7 @@ def constructTree(listhead, n):
     listhead = listhead.next
     # Must also subract the root, so -1 at last
     treeroot.right = constructTree(listhead, n - n/2 -1)
+    return treeroot
 
 #===================
 # From a sorted Array
@@ -59,8 +61,8 @@ def constructTree(array, tree):
     if array is not None:
         n = len(array)
         tree = array[n/2]
-        tree.left = constructTree(array[0:n/2])
-        tree.right = constructTree(array[n/2 +1 :])
+        tree.left = constructTree(array[0:n/2], tree)
+        tree.right = constructTree(array[n/2 +1 :], tree)
         return tree
     else:
         return None
@@ -239,3 +241,4 @@ class Trie:
             node = node[char]
         return node
 # Then a hashtable for numbers as key, names as value
+# Or let Trie has number as children

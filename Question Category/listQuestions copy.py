@@ -50,3 +50,23 @@ def reverse(cur):
     # Set "old" next pointer to None
     cur.next = None
 
+"""
+3. Return the mth number in nth row in a pascal triangle
+"""
+# First we build the pascal triangle
+triangle = []
+for i in xrange(n+1):
+    if i == 0:
+        triangle.append([1])
+    elif i == 1:
+        triangle.append([1,1])
+    else:
+        ll = []
+        for j in xrange(n+1):
+            if j == 0 or j == n:
+                ll.append(1)
+            else:
+                ll.append(triangle[i-1][j-1]+triangle[i-1][j])
+        triangle.append(ll)
+return triangle[n][m]
+
