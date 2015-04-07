@@ -106,6 +106,34 @@ def bigger(s):
 # of integers in the list such that the first is larger than the second.
 """
 """
-5. Convert an roman numeral to an integer.
+5. Longest Palindromic Substring
 """
+# Maintain a boolean table, table[i][j] is true is a[i..j] is palindromes
+# O(n^2)
+def longestpalindromic(a):
+    n = len(a)
+    table = [[0 for y in xrange(n)] for x in xrange(n)]
+    maxLength = 1
+    # All substrings of length 1 are true
+    for i in xrange(n):
+        table[i][i] = 1
+    # Check for substring of length 2
+    for i in xrange(n-1):
+        if a[i] == a[i+1]:
+            table[i][i+1] = 1
+            start = i
+            maxLength = 2
+    # check substring greater than 2
+    for k in xrange(3, n+1): # k is length of substring
+        for i in xrange(n-k+1): # i is starting index
+            j = i + k - 1 # j is ending index
+
+            if table[i+1][j-1] != 0 and a[i] == a[j]:
+                table[i][j] = 1
+                if k > maxLength:
+                    start = i
+                    maxLength = k
+    return a[start : start + k]
+
+
 

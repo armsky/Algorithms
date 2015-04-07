@@ -1,6 +1,6 @@
 """
 1.1 Is the number prime.
-1.2Find all the prime factors of a number
+1.2 Find all the prime factors of a number
 """
 # Not a efficient way
 def isPrime(num):
@@ -85,3 +85,34 @@ def dec_to_bin(dec):
 
 def bin_to_dec(binn):
 
+"""
+6.  fibonacci in recursive way
+"""
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 0
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+"""
+7. Approximate the square root of a number using binary search
+"""
+def sqrt(n):
+    precision = 0.00001
+    low = 1
+    high = n
+    mid = 0
+    while high - low > precision:
+        mid = (high+low)/2
+        v = mid * mid
+        if v - n > precision:
+            high = mid
+        else:
+            low = mid
+
+"""
+8. Find median of 3 sorted arrays
+    Length of each array may different
+"""

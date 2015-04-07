@@ -144,7 +144,8 @@ def getMedian():
         return maxHeap.peek()
 
 """
-5. find a sibling (cousin) of a given node of a binary tree. Check if two nodes are siblings.
+5. find a sibling (cousin) of a given node of a binary tree.
+    Check if two nodes are siblings.
 - Sibling: nodes that has same parent.
 - Cousin: nodes that at same level and have different parents.
 """
@@ -166,7 +167,7 @@ def getLevel(root, target, lev):
     l = getLevel(root.left, target, lev + 1)
     if l != 0:
         return l
-    l = getLevel(root,right, target, lev + 1)
+    l = getLevel(root.right, target, lev + 1)
     return l
 
 def isCousin(node, a, b):
@@ -236,7 +237,7 @@ class Trie:
         # Return node after consuming given prefix
         node = self.root
         for char in prefix:
-            if char no in node.keys():
+            if char not in node.keys():
                 return None
             node = node[char]
         return node

@@ -47,7 +47,6 @@ def max_iterative(node):
             node = node.left
         else:
             node = stack.pop()
-            self.visitor(node.data)
             node = node.right
     return height
 

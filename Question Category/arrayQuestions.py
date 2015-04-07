@@ -108,7 +108,7 @@ def reverse(a, l, r):
 def rotate(a, d):
    reverse(a, 0, d-1)
    reverse(a, d, n-1)
-   reverse(d. 0, n-1)
+   reverse(a, 0, n-1)
 
 """
 4. Find max difference in an unsorted array. The index of min < index of max
@@ -156,3 +156,44 @@ def shuffle(arr):
         # Random generate an index [0, i]
         j = random.randrange(0, i+1)  #randrange will do [a, b)
         arr[i], arr[j] = arr[j], arr[i]
+
+"""
+6. Given a array of int, find two numbers with sum as a given x
+"""
+# I. Naive: O(n^2), two loops
+# II. Sort the array first, use two pointer, only one Loop O(n)
+#   Depending one the sorting algorithm, Usually O(n log n)
+def find(a, x):
+    a = sorted(a)
+    l = 0
+    r = len(a) - 1
+    while r > l:
+        if a[l] + a[r] == x:
+            return
+        elif: a[l] + a[r] < x:
+            l += 1
+        else:
+            r -= 1
+    return None
+# III. Use Hash Map, only works if range of numbers is KNOWN
+# O(n) time, O(R) space, R is range of numbers
+def find(a, x):
+    d = dict()
+    for num in a:
+        if d.has_key[x-num]:
+            return
+        else:
+            d.[num] = 1
+
+
+"""
+7. Josephus Problem
+    An array of n, every k steps, execute one element, find the only
+    safe positon. O(n) time
+"""
+def josephus(n, k):
+    if n == 1:
+        return 1
+    # The position returned by josephus(n-1, k) is adjusted
+    # because it considers the original position k%n + 1 as 1
+    return (josephus(n-1, k) + k-1) % n +1;
