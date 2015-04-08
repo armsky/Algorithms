@@ -72,7 +72,10 @@ def isPaired(s):
             return False
     return True
 
-# Test if string a pangram
+"""
+3. Test if string a pangram
+    Pangram are words or sentences containing every letter of the alphabet at least once.
+"""
 def isPangram(s):
     # Create a full set with list (string) of all chars
     f = set('abcdefghijklmnopqrstuvwxyz')

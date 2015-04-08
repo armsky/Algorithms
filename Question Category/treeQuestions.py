@@ -243,3 +243,52 @@ class Trie:
         return node
 # Then a hashtable for numbers as key, names as value
 # Or let Trie has number as children
+
+"""
+8. Find LCA (Lowest Common Ancestor)in a BST
+    If the node has parent pointer, just traverse up
+    If not, traverse from top to bottom
+"""
+def lca(root, n1, n2):
+    if root is None:
+        return None
+    if root.data > n1.data and root.data > n2.data:
+        lca(root.left, n1, n2)
+    if root.data < n1.data and root.data < n1.data:
+        lca(root.right, n1, n2)
+    return root
+
+"""
+9. Check if BST is balanced
+"""
+# Get the height of left and right subtree, if the diff is no more
+# than 1, it's balanced
+# I. O(n^2) implementation
+def isBalanced(root):
+    lh = height(root.left)
+    rh = height(root.right)
+    if abs(lh - rh) <= 1
+        and isBalanced(root.left)
+        and isBalanced(root.right):
+            return True
+    return False
+# II. O(n) optimization, calculate the height in same recursion
+def isBalanced(root, height):
+    lh = 0
+    rh = 0
+    #lb, rm means left subtree is balanced
+    lb = False
+    rb = False
+    if root ==0:
+        height = 0
+        return True
+    lb = isBalanced(root.left, lh)
+    rb = isBalanced(root.right, rh)
+    if lh > rh:
+        height = lh + 1
+    else:
+        height = rh + 1
+    if abs(lh - rh) >= 2:
+        return False
+    else:
+        return lb and rb

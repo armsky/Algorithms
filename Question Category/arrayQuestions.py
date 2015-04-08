@@ -196,4 +196,30 @@ def josephus(n, k):
         return 1
     # The position returned by josephus(n-1, k) is adjusted
     # because it considers the original position k%n + 1 as 1
-    return (josephus(n-1, k) + k-1) % n +1;
+    return (josephus(n-1, k) + k-1) % n +1
+
+# Make the list as a circle
+
+"""
+8. Median of two sorted arrays
+ Suppose both have n elements
+"""
+def median(a1, a2, n):
+    if n == 0:
+        return None
+    if n == 1:
+        return (a1[0]+a2[0])/2
+    if n == 2:
+        return (max(a1[0], a2[0]) + min(a1[1], a2[1])) / 2
+    # suppose median are known as m1, m2
+    if m1 == m2:
+        return m1
+    if m1 < m2:
+        if n%2 == 0:
+            return median(a1[n/2:], a2[:n/2 + 1], n/2 +1)
+        else:
+            return median(a1[n/2:], a2[:n/2], n/2)
+    else:
+        if n%2 == 0:
+        #repeat...
+
