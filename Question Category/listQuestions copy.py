@@ -70,3 +70,11 @@ for i in xrange(n+1):
         triangle.append(ll)
 return triangle[n][m]
 
+"""
+4. Merge k sorted lists
+"""
+# Since list internaly in python is array, a list[1:] can be costy
+# Could use a double-ended list instead
+def merge(ll):
+
+

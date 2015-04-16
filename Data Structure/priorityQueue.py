@@ -4,6 +4,10 @@ Basic operations:
     1. insert_with_priority
     2. pull_highest_priority_item
     3. peek
+
+Difference between heap and priority queue:
+    1. Heap is ONE implementation of a priority queue, and it's tree-based.
+    2. Priority Queue is an abstract data structure.
 """
 import heapq
     # heapq is a min heap, smallest item in the top
