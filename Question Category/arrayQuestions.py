@@ -223,3 +223,10 @@ def median(a1, a2, n):
         if n%2 == 0:
         #repeat...
 
+"""
+9. Given a n by n array filled with 0s. set rondomly X number of '1's in that array/
+"""
+# create an array with length of X, let it's index equals to its value
+# apply shuffle algorithm to this array
+# use this shuffled array to fill the n by n array
+# O(x) time, O(x) space
