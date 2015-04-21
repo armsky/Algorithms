@@ -42,3 +42,45 @@ def max_profit(a):
             buy[i] = 0
         profit += m-a[i]
     return profit
+
+"""
+3. Longest Increasing Subsequence
+"""
+def lis(a):
+    def switch(left, right, num, r):
+       while right - left > 1:
+        mid = (left+right)/2
+        if r[mid] >= num: #NOTE: careful with the >= here
+            right = mid
+        else:
+            left = mid
+    r[right] = num
+    return
+
+    r = []
+    r.append(a[0])
+    sz = 1
+    for i in xrange(1, len(a)):
+        if a[i] <= r[i]:
+            r[0] = a[i]
+        elif a[i] > r[-1]:
+            r.append(a[i])
+            sz += 1
+        else:
+            switch(0, sz-1, a[i], r)
+    return sz
+
+"""
+4. Candies
+All the children sit in a line, and each  of them has a rating score according to his or her performance in the class.  Alice wants to give at least 1 candy to each child. If two children sit next to each other, then the one with the higher rating must get more candies. Alice wants to save money, so she needs to minimize the total number of candies.
+"""
+def candies(a):
+    n = len(a)
+    c = [1] * n
+    for i in xrange(1, n):
+        if a[i] > a[i-1]:
+            c[i] = c[i-1]+1
+    for i in xrange(n-2, -1, -1):
+        if a[i] > a[i+1]:
+            c[i] = max(c[i], c[i+1]+1)
+    return sum(c)

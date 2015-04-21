@@ -1,18 +1,24 @@
-def firstMissingPositive(A):
-        for i in xrange(len(A)):
-            while A[i] != i+1:
-                if A[i] <= 0 or A[i] > len(A) or A[A[i]-1] == A[i]:
-                    break
-                else:
-                    # i = 0
-                    temp = A[i] # temp = A[0] = 2
-                    A[i] = A[A[i]-1] # A[0] = A[1] = 1
-                    print A[i]
-                    A[A[i]-1] = temp # A[1] = temp = 2
-                    print A[i], A[A[i]-1]
-        for i in xrange(len(A)):
-            if A[i] != i+1:
-                return i+1
-        return len(A)+1
+def switch(left, right, num, r):
+    while right - left > 1:
+        mid = (left+right)/2
+        if r[mid] >= num:
+            right = mid
+        else:
+            left = mid
+    r[right] = num
+    return
 
-print firstMissingPositive([2,1])
+t = int(input())
+r = []
+r.append(int(raw_input().strip()))
+sz = 1
+for i in xrange(1, t):
+    num = int(raw_input().strip())
+    if num < r[0]:
+        r[0] = num
+    elif num > r[-1]:
+        r.append(num)
+        sz += 1
+    else:
+        switch(0, sz-1, num, r)
+print sz
