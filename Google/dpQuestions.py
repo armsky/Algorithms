@@ -74,6 +74,7 @@ def lis(a):
 4. Candies
 All the children sit in a line, and each  of them has a rating score according to his or her performance in the class.  Alice wants to give at least 1 candy to each child. If two children sit next to each other, then the one with the higher rating must get more candies. Alice wants to save money, so she needs to minimize the total number of candies.
 """
+# Two loops, one forward and the other backword.
 def candies(a):
     n = len(a)
     c = [1] * n
@@ -84,3 +85,25 @@ def candies(a):
         if a[i] > a[i+1]:
             c[i] = max(c[i], c[i+1]+1)
     return sum(c)
+
+"""
+5. Find expected sum in a list of integers (Knapsack)
+return the sum (k) of numbers as near as possible, but not exceeding
+is no element is selected, then sum is 0
+"""
+# a. if each element of list can be selected multiple times
+def knaosack(a, k):
+    n = len(a)
+    # Build a temp to store possible expected sum of 0..k
+    dp = [0] * (k+1)
+    a.sort()
+    for g in xrange(1, k+1): # k slots in knapsack
+        for i in xrange(0, n): # each candidate in a
+            if a[i] <= g:
+                dp[i] = max(dp[i], a[i] + dp[g - a[i]])
+    return dp[k]
+
+# b. if each element of list can be selected only once
+
+
+
