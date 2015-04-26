@@ -92,7 +92,8 @@ return the sum (k) of numbers as near as possible, but not exceeding
 is no element is selected, then sum is 0
 """
 # a. if each element of list can be selected multiple times
-def knaosack(a, k):
+# Time: O(NK)
+def knapsack(a, k):
     n = len(a)
     # Build a temp to store possible expected sum of 0..k
     dp = [0] * (k+1)
@@ -106,4 +107,27 @@ def knaosack(a, k):
 # b. if each element of list can be selected only once
 
 
+"""
+6. Knapsack(0/1): a list of items with weight and value
+Put items into sack, not exceed the total weigt limit, make value maxium.
+"""
+# a. DP solution
+def Knapsack(a, W):
+    table = [[0 for w in xrange(W+1)] for j in xrange(len(a))]
+    for j in xrange(1, len(a)+1):
+        wt = a[j].wt
+        val = a[j].val
+        for w in xrange(1, W+1):
+            if wt > W:
+                table[j][w] = table[j-1][w]
+            else:
+                table[j][w] = max(table[j-1][w], val + table[j-1][w - wt])
+
+
+"""
+If not (0/1): can choose items multiple times
+"""
+# 1. Optimize a, if wt[i] < wt[j] and val[i] > val[j], delete j.
+
+# 2.
 
