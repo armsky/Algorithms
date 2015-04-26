@@ -61,3 +61,23 @@ def diameter(node):
     rdiameter = diameter(node.right)
 
     return max(lheight+rheight+1, max(ldiameter, rdiameter))
+
+# Serialize and Deserialize (a preorder way)
+def serialize(node):
+    if node == None:
+        return
+    visit(node.value)
+    serialize(node.left)
+    serialize(node.right)
+
+def deserialize(a):
+    if a is None:
+        return
+    if a[0] is None:
+        return None
+    node = Node(a[0])
+    a = a[1:] # Since list has no has_next function
+    node.left = deserialize(a)
+    node.right = deserialize(a)
+    return node
+

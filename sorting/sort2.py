@@ -37,6 +37,15 @@ def merge(left, right):
 # O(n log n), divide-and-conquer, in-place, short inner loop
 # Time: O(n log n), O(n log n), O(n^2)
 # Space: O(log n)
+"""This extra space is used in stack frames, it's not practical for making it
+iterative because it's not tail recursive
+"""
+"""
+When is QuickSort impractical?
+Ans:
+    1. Any situation when you do not have random access in O(1), i.e. Linked list
+    2. Distributed sorting. i.e. sort data across files
+"""
 def quicksort(a, left, right):
     i = left
     j = right

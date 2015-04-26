@@ -87,7 +87,7 @@ def candies(a):
     return sum(c)
 
 """
-5. Find expected sum in a list of integers (Knapsack)
+5. Knapsack: Find expected sum in a list of integers
 return the sum (k) of numbers as near as possible, but not exceeding
 is no element is selected, then sum is 0
 """
