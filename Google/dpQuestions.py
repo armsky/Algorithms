@@ -99,20 +99,29 @@ def knapsack(a, k):
     dp = [0] * (k+1)
     a.sort()
     for g in xrange(1, k+1): # k slots in knapsack
-        for i in xrange(0, n): # each candidate in a
+        for i in xrange(n): # each candidate in a
             if a[i] <= g:
-                dp[i] = max(dp[i], a[i] + dp[g - a[i]])
+                dp[g] = max(dp[g], a[i] + dp[g - a[i]])
     return dp[k]
 
 # b. if each element of list can be selected only once
+# simple case
+def knapsack2(a,k):
+    a.sort()
+    temp = 0
+    for i in xrange(n):
+        if a[i] + temp <= k:
+            temp += a[i]
+    return temp
 
 
 """
 6. Knapsack(0/1): a list of items with weight and value
 Put items into sack, not exceed the total weigt limit, make value maxium.
 """
-# a. DP solution
+# a. DP solution, Time: O(NW)
 def Knapsack(a, W):
+    # a value table
     table = [[0 for w in xrange(W+1)] for j in xrange(len(a))]
     for j in xrange(1, len(a)+1):
         wt = a[j].wt
@@ -122,7 +131,13 @@ def Knapsack(a, W):
                 table[j][w] = table[j-1][w]
             else:
                 table[j][w] = max(table[j-1][w], val + table[j-1][w - wt])
-
+    result = []
+    w = W
+    for i in xrange(len(a), 0, -1):
+        if table[i][w] != table[i-1][w]:
+            result.append(a[i-1])
+            w -= a[i-1].wt
+    return result
 
 """
 If not (0/1): can choose items multiple times
@@ -130,4 +145,3 @@ If not (0/1): can choose items multiple times
 # 1. Optimize a, if wt[i] < wt[j] and val[i] > val[j], delete j.
 
 # 2.
-

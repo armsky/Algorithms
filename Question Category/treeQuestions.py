@@ -292,3 +292,56 @@ def isBalanced(root, height):
         return False
     else:
         return lb and rb
+
+"""
+10. Find the deepest node in BST
+"""
+# Use BFS, the last node visited is the deepest node in a tree (not necessarily BT, applies to any tree), O(n) time
+# Use DFS, count the depth node by pre-order DFS, O(n) time, more code
+def deepest(root):
+    if root = None:
+        return None
+    queue = Queue.Queus()
+    queue.push(root)
+    while queue is not None:
+        node = queue.get()
+        if node.left is not None:
+            queue.push(node.left)
+        if node.right is not None:
+            queue.push(node.right)
+    return node
+"""
+11. get the number of nodes in given level of BST
+"""
+# use BFS, tracking node number of each level
+    num = 1
+    while queue is not None:
+        node = queue.get()
+        num -= 1
+        if node.left is not None:
+            queue.push(node.left)
+        if node.right is not None:
+            queue.push(node.right)
+        if num == 0:
+            level -= 1
+            num = len(queue)
+            if level == 0:
+                return num
+
+"""
+12. Find in-order successor to a given node in binary tree.
+"""
+# If the right subtree is not NULL, the succ is in it's right
+# If the right subtree is NULL, start from
+def find_succ(root, node):
+    if node.right != None:
+        return node.right
+    while root is not None:
+        if node.data < root.data
+            succ = root
+            root = root.left
+        elif node.data > root.data:
+            root = root.right
+        else:
+            break
+    return succ

@@ -62,7 +62,7 @@ def BFS(V):
 # NOTE:Since tried every vertex, so this is a full traversal
 def DFSUtil(v, visited):
     visited[v] = 1
-    print v
+    print v # define travesal function here
     for i in xrange(len(adj[v])):
         if visited[i] == 0:
             DFSUtil(1, visited)
@@ -73,3 +73,23 @@ def DFS(V):
         if visited[i] == 0:
             DFSUtil(i, visited)
 
+"""
+Three ways to represent a graph
+"""
+# 1. Objects with pointer to others
+# O(n) for memory space for vertice, O(n^2) for pointers.
+# O(n) time for accessing any given node.
+#       (could use hashmap to store pointers, O(1) access but O(V+E) for space
+# Pros: More readable and convenient for OO users
+
+# 2. Matrix:
+# O(n^2) space, O(1) time for accessing given vertex, O(1) add/delete edge
+# Pros: Good for dense graph.
+#       For both directed and undirected
+#       Good for weighted structure
+# Cons: Not good for sparse graph
+
+# 3. Adjacency list:
+# O(V+E) space, O(1) for access, O(log V) add/delete edgei
+# Pros: Save space, easy for edit edges and vertice
+# Cons: Hard to find "is there an edge from v1 to v2". O(V) time.
