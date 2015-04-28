@@ -58,3 +58,49 @@ Big-Omega(n!) time !!!
 1. Consider
 """
 
+"""
+4. Dijkstra's shortest path (Greedy)
+Thie code for all verteice to src, but can modify to specify vertex
+O(V^2) time with this matrix representation
+Dijkstra DOES NOT work for negative weight graph.
+"""
+# a. create an empty shortest path tree set
+# b. assign source vertex as 0, others as infinite
+# c. while sptSet does not inlcude all vertices:
+#       1. pick a vertex u that not in sptSet has min distance value
+#       2. include u to sptSet
+#       3. update distance value of all adjacent vertices of u
+def min_dist(dist, sptSet):
+    min_v = max_int
+    for v in xrange(len(dist)):
+        if sptSet[v] == 0 and dist[v] <= min_v:
+            min_v = dist[v]
+            min_index
+    return min_index
+
+def dijkstra(graph, src):
+    # graph use matrix as [V][V]
+    dist = [max_int] * V # output, hold the shortest path form src to i
+    dist[src] = 0
+    sptSet = [0] * V
+
+    for x in xrange(V):
+        u = min_dist(dist, sptSet)
+        sptSet[u] = 1
+        for v in xrange(V):
+            if sptSet[v] == 0 and graph[u][v] != 0 \
+                    and dist[u] != max_int \
+                    and dist[u] + graph[u][v] < dist[v]:
+                dist[v] = dist[u] + graph[u][v]
+
+# Can be reduced to O(E log V) is use adjacency list
+# With the help of min-heap, put all vertices into heap
+
+"""
+5. Prim's Minimum Spanning Tree, MST, Greedy
+Spanning tree means all vertices must be connected. MST is with min weight edges
+"""
+# a. mstSet keep vertices already included
+# b. mark src value as 0, others as infinite
+# c. while mstSet doesn't include all vertices:
+#       (same as Dijkstra, but D is dist to src, MST is for know vertices)

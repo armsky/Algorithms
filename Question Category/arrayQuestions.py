@@ -230,3 +230,14 @@ def median(a1, a2, n):
 # apply shuffle algorithm to this array
 # use this shuffled array to fill the n by n array
 # O(x) time, O(x) space
+
+"""
+10. Given an array with negetive and positive numbers, 'sort' them
+that negetive on the left, positives on the right, their relative positon
+retains the same.
+eg: [-1,1,3,-3,2] becomes [-1,-3,1,3,2]
+"""
+# Recursively 'sort' n/2 of the array, becomes A1A2 and B1B2
+# inverse A2 -> A2', B1 -> B1'
+# inverse A2'B1' -> B1A2, the total array becomes A1B1A2B2
+# O(log n) time and O(1) space

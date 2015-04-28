@@ -332,7 +332,8 @@ def deepest(root):
 12. Find in-order successor to a given node in binary tree.
 """
 # If the right subtree is not NULL, the succ is in it's right
-# If the right subtree is NULL, start from
+# If the right subtree is NULL, start from root and travel down
+# O(h) time. h is height
 def find_succ(root, node):
     if node.right != None:
         return node.right

@@ -123,5 +123,5 @@ When a black node is deleted and replaced by a black child, the child is marked 
 2. simple case: if either u or v is RED, mark replaced child as BLACK
 
 3. if both u and v are BLACK:
-  1.
+  1. color u as double black
 """

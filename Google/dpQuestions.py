@@ -145,3 +145,18 @@ If not (0/1): can choose items multiple times
 # 1. Optimize a, if wt[i] < wt[j] and val[i] > val[j], delete j.
 
 # 2.
+
+"""
+7. Pots of godd game
+A list of pots with gold coins, you can pick the first pot or the last one.
+If you starts the game, opponent can also play optimal, how do you win
+"""
+pots = [...]
+def optimal(left, right):
+    if left > right:
+        return 0
+    a = pots[left] + min(optimal(left+2, right),
+                        optimal(left+1, right-1))
+    b = pots[right] + min(optimal(left, right-2,
+                        optimal(left+1, right-1))
+    return max(a,b)
