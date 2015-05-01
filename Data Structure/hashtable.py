@@ -28,7 +28,7 @@ Difference between hash table and hash map:
     to find a max/min element, use map instead of hash table.)
   2. Map also stores key/value pair, so doesn't allocate huge space with empty
     slots.
-- table: 
+- table:
   1. use a hash function to compute an key to it's bucket. doesn't insert
     hashed key/data in sorted order. It has O(1) lookup and insert
     in most cases.
@@ -36,3 +36,57 @@ Difference between hash table and hash map:
     transfet teh keys form old table to new table by a new hash function.
 
 """
+
+# Implement it with just array
+class HashEntry():
+
+    def _init_(self, key, value):
+        self.key = key
+        self.value = value
+
+    def get_key():
+        return key
+
+    def get_value():
+        return value
+
+class HashTable():
+    TABLE_SIZE = 256
+
+    def _init_(self):
+        table = [[]] * TABLE_SIZE
+
+    def hash(key):
+        # hash function
+        return hash_code
+
+    def put(key, value):
+        index = self.hash(key) % TABLE_SIZE
+        if entry.value is None:
+            return False
+        else:
+            table[index].append(HashEntry(key, value))
+            return True
+
+    def get(key):
+        index = self.hash(key) % TABLE_SIZE
+        if table[index] is None:
+            return None
+        for entry in table[index]:
+            if entry.get_key() = key:
+                return entry.get_value()
+        else:
+            return None
+# If don't want multiple entries in the same bucket list, use Linear Probing, which will trie to find next empty slots in the array.
+# table is one-dimension array now
+def put(key, value):
+    index = self.hash(key) % TABLE_SIZE
+    while table[index] is not None and table[index].get_key() != key:
+        index = (index+1) % TABLE_SIZE
+    table[index] = HashEntry(key, value)
+
+def get(key):
+    index = self.hash(key) % TABLE_SIZE
+    while table[index] is not None and table[index].get_key() != key:
+        index = (index+1) % TABLE_SIZE
+    return table[index].get_value()

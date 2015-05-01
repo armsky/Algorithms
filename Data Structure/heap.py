@@ -12,9 +12,9 @@ Linked List O(1)        O(n)
 BST         O(log n)    O(log n)
 Binary heap O(log n)    O(log n)
 
-Deleting the min element taks constant time
+Deleting the min element takes constant time
 But then the structure need to be adjusted, need O(log n) time
-
+Not adaptive
 """
 
 # A priority queue is common implemented with a heap
@@ -43,8 +43,9 @@ def heapsort(a):
     print "###"
     end = len(a)-1
     while end > 0:
-        print a
+        # Swap the largest element to the end
         a[end], a[0] = a[0], a[end]
+        print a
         sift(0, end)
         end -= 1
 
@@ -108,5 +109,6 @@ def min_heapify(a):
 
 
 a = [100,-10,-8,0,1,3,11,35,68,500]
-min_heapify(a)
+#min_heapify(a)
+heapsort(a)
 print a

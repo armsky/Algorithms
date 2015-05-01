@@ -72,9 +72,61 @@ return triangle[n][m]
 
 """
 4. Merge k sorted lists
+Could have extended question in distributed system
 """
-# Since list internaly in python is array, a list[1:] can be costy
-# Could use a double-ended list instead
-def merge(ll):
+# a. Like MergeSort, divide k lists to k/2 and so on, until there are
+#       only two lists, recursively merge them
+# k lists, each list has n elements, O(nk log k) time, O(log k) stack space
+def merge_lists(ll):
+    k = len(ll)
+    if k == 0:
+        return None
+    return helper(ll, 0, k-1)
 
+def helper(lists, l, r):
+    if l < r:
+        m = (l+r)/2
+        return merge(helper(lists, l, m), helper(lists, m+1, r))
+    return lists[l]
 
+def merge(a, b):
+    # a and b are list nodes
+    dummy = Node()
+    if a is not None:
+        dummy.next = a
+    else:
+        dummy.next = b
+    cur = dummy
+    while a is not None and b is not None:
+        if a.val < b.val:
+            a = a.next
+        else:
+            next = b.next
+            cur.next = b
+            b.next = a
+            b = next
+        cur = cur.next
+    if a is not None:
+        cur.next = a
+    if b is not None:
+        cur.next = b
+    return dummy.next
+
+# b. Maintain a min-heap size as k, each time pop the top element(t) to the
+#       the result, t = t.next, and maintain the heap
+# O(nk log k) time, O(k) space
+def merge_lists(ll):
+    heap = heapq()
+    for l in ll:
+        if l is not None:
+            heappush(heap, l)
+    dummy = Node(0)
+    runner = dummy
+    while heap is not None:
+        cur = heappop(heap)
+        runner.next = cur
+        runner = runner.next
+        # Maintain the heap
+        if cur.next is not None:
+            heappush(heap, cur.next)
+    return dummy.next

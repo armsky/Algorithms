@@ -1,10 +1,9 @@
 """
-1. Maximum subarray problem. Give an array, find the contiguous subarray that has the
-    largest sum. (The array must have at least 1 positive number)
+1. Maximum subarray problem. Give an array, find the contiguous subarray that has the largest sum. (The array must have at least 1 positive number)
 """
 # I. Kadane's Algorithm. A DP resolution
-# O(n) time
-def maxSub(a):
+# O(n) time, O(1) space
+def max_sub(a):
     n = len(a)
     max_so_far = 0
     max_ending_here = 0
@@ -201,30 +200,48 @@ def josephus(n, k):
 # Make the list as a circle
 
 """
-8. Median of two sorted arrays
- Suppose both have n elements
+8. Find the k-th Smallest Element in the Union of Two Sorted Arrays
 """
-def median(a1, a2, n):
-    if n == 0:
-        return None
-    if n == 1:
-        return (a1[0]+a2[0])/2
-    if n == 2:
-        return (max(a1[0], a2[0]) + min(a1[1], a2[1])) / 2
-    # suppose median are known as m1, m2
-    if m1 == m2:
-        return m1
-    if m1 < m2:
-        if n%2 == 0:
-            return median(a1[n/2:], a2[:n/2 + 1], n/2 +1)
-        else:
-            return median(a1[n/2:], a2[:n/2], n/2)
+# a. Merge two arrays, with extra O(m+n) space and O(m+n) time
+# b. Two pointers with O(k) time, no extra space
+# c. Best: O(log k)
+#    Assume m > k/2, n > k/2 for analysis, could be fix in real code
+#    Compare A[k/2-1] and B[k/2-1], if < , means A[0..k/2-1] must before
+#     kth in A+B, so discard them and do it again
+#    If = , we found it
+def find_kth(a, m, b, n, k):
+    # Always let m equal or smaller than n
+    if m > n:
+        return find_kth(b,n,a,m,k)
+    if m == 0:
+        return b[k-1]
+    if k == 1:
+        return min(a[0],b[0])
+    pa = min(k/2, m)
+    pb = k - pa
+    if a[pa-1] < b[pb-1]:
+        return find_kth(a[pa:], m-pa, b, n, k-pa)
+    elif a[pa-1] > b[pb-1]:
+        return find_kth(a, m, b[pb:], n-pa, k-pb)
     else:
-        if n%2 == 0:
-        #repeat...
+        return a[pa-1]
+
 
 """
-9. Given a n by n array filled with 0s. set rondomly X number of '1's in that array/
+9. Median of two sorted arrays
+Use same idea above
+"""
+def find_median(a, m, b, n):
+   total = m+n
+    # if total is odd
+    if total % 2 == 1:
+        return find_kth(a, m, b, n, total/2 +1)
+    else:
+        return (find_kth(a, m, b, n, total/2)
+                + find_kth(a, m, b, n, total/2 +1))/2
+
+"""
+10. Given a n by n array filled with 0s. set rondomly X number of '1's in that array/
 """
 # create an array with length of X, let it's index equals to its value
 # apply shuffle algorithm to this array
@@ -232,7 +249,7 @@ def median(a1, a2, n):
 # O(x) time, O(x) space
 
 """
-10. Given an array with negetive and positive numbers, 'sort' them
+11. Given an array with negetive and positive numbers, 'sort' them
 that negetive on the left, positives on the right, their relative positon
 retains the same.
 eg: [-1,1,3,-3,2] becomes [-1,-3,1,3,2]

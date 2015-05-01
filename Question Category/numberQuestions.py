@@ -101,7 +101,7 @@ def fibonacci(n):
 """
 def sqrt(n):
     precision = 0.00001
-    low = 1
+    low = 0
     high = n
     mid = 0
     while high - low > precision:
