@@ -104,3 +104,54 @@ Spanning tree means all vertices must be connected. MST is with min weight edges
 # b. mark src value as 0, others as infinite
 # c. while mstSet doesn't include all vertices:
 #       (same as Dijkstra, but D is dist to src, MST is for know vertices)
+
+"""
+6. Clone Graph
+Given a undirected node (node in the graph contains a label and a list of its neighbors), return a undirected graph node.
+A serialized graph represented as {0,1,2#1,2#2,2}
+
+# Definition for a undirected graph node
+class UndirectedGraphNode:
+    def __init__(self, x):
+        self.label = x
+        self.neighbors = []
+"""
+#   a. DFS
+#   Use a dict to map all nodes and their clones {node: clone}
+def cloneGraph(self, node):
+    if node is None:
+        return None
+    node_map = {}
+    return cloneNode(node, node_map)
+
+def cloneNode(self, node, node_map):
+    if node is None:
+        return None
+    if node_map.has_key(node):
+        return node_map[node]
+    clone = UndirectedGraphNode(node.label)
+    for neighbor in node.neighbors:
+        clone.neighbors.append(self.cloneNode(neighbor, node_map))
+# b. BFS
+# Use a queue and a dict
+import Queue
+def cloneGraph(self, node):
+    if node is None:
+        return None
+    queue = Queue.Queue()
+    new_node = UndirectedGraphNode(node.label)
+    queue.put(node)
+    map = {}
+    map[node] = new_node
+    while queue is not None:
+        curr = queue.get()
+        for nb in curr.neighbors:
+            if nb not in map:
+                queue.put(nb)
+                clone = UndirectedGraphNode(curr.label)
+                map[curr].neighbors.append(clone)
+                map[nb] = clone
+            else:
+                # Turn directed graph to undirected graph
+                map[curr].neighbors.append(map[nb])
+    return new_node

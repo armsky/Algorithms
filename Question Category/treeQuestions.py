@@ -105,7 +105,7 @@ def findMedian(root):
 """
 4. How to find median in free running stream of random numbers.
 """
-# I.- Create a balanced BST of first K numbers
+# I.- Create a _balanced_ BST of first K numbers
 #   - Find median of first K numbers
 #   - Inset new number in BST and delete the first number of BST
 #   - If the inseted on is greater that median, return the successor of median
@@ -162,16 +162,16 @@ def getLevel(root, target, lev):
     # Find the level of node 'target'
     if root is None:
         return 0
-    if root == targt:
+    if root == target:
         return lev
-    l = getLevel(root.left, target, lev + 1)
-    if l != 0:
-        return l
-    l = getLevel(root.right, target, lev + 1)
-    return l
+    level = getLevel(root.left, target, lev + 1)
+    if level != 0:
+        return level
+    level = getLevel(root.right, target, lev + 1)
+    return level
 
 def isCousin(node, a, b):
-    if (level(node, a, 1) == level(node, b, 1)) and
+    if (getLevel(node, a, 1) == getLevel(node, b, 1)) and
         isSibling(node, a, b) is False: # if they are siblings, they are not cousin
         return True
     else:
@@ -201,7 +201,7 @@ def isBST(root):
 
 # II. Inorder traversal and store the result to temp array
 # If the array is sorted in ascending order, is BST
-# O(n) time.
+# O(n) time, O(n) space
 def isBST(root):
     stack = []
     node = root
@@ -273,14 +273,14 @@ def isBalanced(root):
             return True
     return False
 # II. O(n) optimization, calculate the height in same recursion
-def isBalanced(root, height):
+height = 0
+def isBalanced(root):
     lh = 0
     rh = 0
     #lb, rm means left subtree is balanced
     lb = False
     rb = False
     if root ==0:
-        height = 0
         return True
     lb = isBalanced(root.left, lh)
     rb = isBalanced(root.right, rh)

@@ -79,7 +79,7 @@ def isPaired(s):
 def isPangram(s):
     # Create a full set with list (string) of all chars
     f = set('abcdefghijklmnopqrstuvwxyz')
-    if not f - set(s.lower()):
+    if f - set(s.lower()) is None:
         return "pangram"
     else:
         return "not pangram"

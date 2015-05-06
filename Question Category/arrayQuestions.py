@@ -232,7 +232,7 @@ def find_kth(a, m, b, n, k):
 Use same idea above
 """
 def find_median(a, m, b, n):
-   total = m+n
+    total = m+n
     # if total is odd
     if total % 2 == 1:
         return find_kth(a, m, b, n, total/2 +1)
@@ -258,3 +258,35 @@ eg: [-1,1,3,-3,2] becomes [-1,-3,1,3,2]
 # inverse A2 -> A2', B1 -> B1'
 # inverse A2'B1' -> B1A2, the total array becomes A1B1A2B2
 # O(log n) time and O(1) space
+
+
+"""
+12. Find kth smallest (or median) in a unsorted array
+"""
+# a. Naive: Sort it and then pick. O(n log n)
+# b. Use a min-heap. O(n log n)
+# c. Use a max-heap. pick k to build the heap (O(k))
+#       Insert others while heapify the heap in O((n-k)*log k)
+#       Pop the root.
+
+# d. QuickSelect. O(n^2) worst case but usually works in O(n)
+#       Pick pivot and move it to the correct position, and partition
+#       the array around it.
+def partition(a, l , r):
+    # make the r as pivot index
+    pivot = a[r]
+    i = l
+    for j in xrange(l, r-l):
+        if a[j] <= pivot:
+            a[i],a[j] = a[j],a[i]
+            i += 1
+    a[i],a[r] = a[r],a[i]
+    return i
+def find_kth(a, l, r, k):
+    pos = partition(a, l, r)
+    if pos - l == k-1:
+        return a[pos]
+    if pos - l > k-1:
+        return find_kth(a, l, pos-1, k)
+    else:
+        return find_kth(a, pos+1, r, k-(pos-l)-1)

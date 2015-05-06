@@ -53,8 +53,8 @@ def BFS(V):
                 print s
                 for i in xrange(len(adj[s])):
                     if visited[i] == 0:
-                    visited[i] = 1
-                    queue.put(i)
+                        visited[i] = 1
+                        queue.put(i)
 
 
 # DFS traversal

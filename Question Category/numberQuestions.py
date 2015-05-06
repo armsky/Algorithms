@@ -113,7 +113,4 @@ def sqrt(n):
             low = mid
     return mid
 
-"""
-8. Find median of 3 sorted arrays
-    Length of each array may different
-"""
+

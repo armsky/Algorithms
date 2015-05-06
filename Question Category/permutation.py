@@ -1,7 +1,7 @@
 # Generates the next permutation lexicographically after a given permutation.
 # It changes the given permutation in-place.
 def nextPermutation(s):
-    # s is a list
+    # s is a array(list in python)
     """
     Find the highest index i such that s[i] < s[i+1].
     If no such index exists, the permutation is the last permutation.
