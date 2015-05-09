@@ -113,4 +113,20 @@ def sqrt(n):
             low = mid
     return mid
 
-
+"""
+8. Given 1 byte, Check it has exactly 3 bits equals to 1
+"""
+# Use Kerninghan's algorithm
+def has_three_set_bits(n):
+    for i in xrange(3):
+        if n == 0:
+			return False
+		n = n & (n-1)
+	return n == 0
+	
+"""
+9. Given a array of numbers, find two with their sum closed to 0
+"""
+# Sort the array by their absolute values, and find each adjacent ones 
+# i.e.: 10, -50, -20, 1, 2 , -5, 51, 70 => 1, 2, -5, 10, -20, -50, 51, 70
+# will easily find -50 and 51
