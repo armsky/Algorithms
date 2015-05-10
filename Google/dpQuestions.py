@@ -42,6 +42,72 @@ def max_profit(a):
             buy[i] = 0
         profit += m-a[i]
     return profit
+# More stock questions from LeetCode:
+# a. If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock
+def maxProfit(self, prices):
+        if prices:
+            min = prices[0]
+            max = 0
+            for i in xrange(1, len(prices)):
+                price = prices[i]
+                if price < min:
+                    min = price
+                if price - min > max:
+                    max = price - min
+            return max
+        else:
+            return 0
+# b. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+def maxProfit(self, prices):
+        delta = 0
+        if not prices:
+            return 0
+        for i in xrange(1, len(prices)):
+            if prices[i] > prices[i-1]:
+                delta += prices[i] - prices[i-1]
+                 
+        return delta
+# c. You may complete at most two transactions.
+def maxProfit(self, prices):
+        if not prices:
+            return 0
+        p = prices
+        n = len(p)
+        # Use two arrays, left[i] means until ith element the max profit
+        # right[i] means the max profit from ith to the array end
+        left = [0]
+        right = [0]*n
+         
+        min_p = p[0]
+        for i in xrange(1, n):
+            left.append(max(p[i] - min_p, left[i-1]))
+            min_p = min(p[i], min_p)
+         
+        max_p = p[-1]
+        for i in xrange(n-2, -1, -1):
+            right[i] = max(max_p - p[i], right[i+1])
+            max_p = max(p[i], max_p)
+         
+        max_profit = 0
+        for i in xrange(n):
+            max_profit = max(left[i] + right[i], max_profit)
+        return max_profit
+# d. You may complete at most k transactions.
+def maxProfit(self, k, prices):
+        p = prices
+        if not p:
+            return 0
+        if k > len(p):
+            # Use scenario II
+            return
+        g = [0] * (k+1)
+        l = [0] * (k+1)
+        for i in xrange(len(p)-1):
+            diff = p[i+1] - p[i]
+            for j in xrange(k, 0, -1):
+                l[j] = max(g[j-1] + max(diff, 0), l[j] + diff)
+                g[j] = max(g[j], l[j])
+        return g[k]
 
 """
 3. Longest Increasing Subsequence

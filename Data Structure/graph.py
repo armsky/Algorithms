@@ -48,7 +48,7 @@ def BFS(V):
         if visited[i] == 0:
             queue.put(i)
             visited[i] = 1
-            while queue is not None:
+            while not queue.empty():
                 s = queue.get()
                 print s
                 for i in xrange(len(adj[s])):
