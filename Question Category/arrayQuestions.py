@@ -162,6 +162,7 @@ def shuffle(arr):
 # I. Naive: O(n^2), two loops
 # II. Sort the array first, use two pointer, only one Loop O(n)
 #   Depending one the sorting algorithm, Usually O(n log n)
+#   But this will not find the initial index of elements.
 def find(a, x):
     a = sorted(a)
     l = 0
