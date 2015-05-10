@@ -58,6 +58,9 @@ def maxProfit(self, prices):
         else:
             return 0
 # b. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+# The problem becomes to find each ascending sub-array, buy stock at the first
+# day of sub-array, sell the stock at the end of the sub-array. since the total
+# delta equals the sum of difference of each adjacent element: 
 def maxProfit(self, prices):
         delta = 0
         if not prices:
@@ -93,6 +96,10 @@ def maxProfit(self, prices):
             max_profit = max(left[i] + right[i], max_profit)
         return max_profit
 # d. You may complete at most k transactions.
+# Use two array global[i][j] and local[i][j]
+# Global means in ith day, make j transactions the best profit
+# Local means ... and sell all in jth transaction, the profit (not best)
+# O(k*n) time, O(k) space
 def maxProfit(self, k, prices):
         p = prices
         if not p:
