@@ -177,12 +177,18 @@ def find(a, x):
 # III. Use Hash Map, only works if range of numbers is KNOWN
 # O(n) time, O(R) space, R is range of numbers
 def find(a, x):
-    d = dict()
-    for num in a:
-        if d.has_key[x-num]:
-            return
+    if not nums:
+        return None
+    table = {}
+    for num in nums:
+        if target - num in table:
+            if num != target -num:
+                return [nums.index(target- num)+1, nums.index(num)+1]
+            else:
+                occs = [j for j, x in enumerate(nums) if x == num]
+                return [occs[0]+1, occs[1]+1]
         else:
-            d.[num] = 1
+            table[num] = 1
 
 
 """
