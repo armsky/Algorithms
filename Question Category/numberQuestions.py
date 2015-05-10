@@ -120,9 +120,9 @@ def sqrt(n):
 def has_three_set_bits(n):
     for i in xrange(3):
         if n == 0:
-			return False
-		n = n & (n-1)
-	return n == 0
+	    return False
+	n = n & (n-1)
+    return n == 0
 	
 """
 9. Given a array of numbers, find two with their sum closed to 0
