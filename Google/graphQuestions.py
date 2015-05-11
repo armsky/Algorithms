@@ -75,7 +75,7 @@ def min_dist(dist, sptSet):
     for v in xrange(len(dist)):
         if sptSet[v] == 0 and dist[v] <= min_v:
             min_v = dist[v]
-            min_index
+            min_index = v
     return min_index
 
 def dijkstra(graph, src):
@@ -127,7 +127,7 @@ def cloneGraph(self, node):
 def cloneNode(self, node, node_map):
     if node is None:
         return None
-    if node_map.has_key(node):
+    if node in node_map:
         return node_map[node]
     clone = UndirectedGraphNode(node.label)
     for neighbor in node.neighbors:
@@ -143,7 +143,7 @@ def cloneGraph(self, node):
     queue.put(node)
     map = {}
     map[node] = new_node
-    while queue is not None:
+    while not queue.empty():
         curr = queue.get()
         for nb in curr.neighbors:
             if nb not in map:
