@@ -1,52 +1,26 @@
-class LRUCache:
+def maxProfit( prices):
+        if not prices:
+            return 0
+        p = prices
+        n = len(p)
+        # Use two arrays, left[i] means until ith element the max profit
+        # right[i] means the max profit from ith to the array end
+        left = [0]
+        right = [0]*n
 
-    # @param capacity, an integer
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cl = list()
-        self.table = {}
-
-    # @return an integer
-    def get(self, key):
-        if key in self.table:
-            self.cl.remove(self.table[key])
-            self.cl.append(self.table[key])
-            return self.table[key]
-        else:
-            return -1
-
-
-    # @param key, an integer
-    # @param value, an integer
-    # @return nothing
-    def set(self, key, value):
-        if key not in self.table.keys():
-            self.table[key] = value
-            self.cl.append(self.table[key])
-            if len(self.cl) > self.capacity:
-                # Find the value:cl[0] corresponding key in table, and delete it too
-                for k, v in self.table.items():
-                    if v == self.cl[0]:
-                        del self.table[k]
-                        break
-                del self.cl[0]
-        else:
-            self.cl.remove(self.table[key])
-            self.table[key] = value
-            self.cl.append(self.table[key])
-        print self.cl
-        print self.table
-
-lru = LRUCache(10)
-action_s = "set(10,13),set(3,17),set(6,11),set(10,5),set(9,10),get(13),set(2,19),get(2),get(3),set(5,25),get(8),set(9,22),set(5,5),set(1,30),get(11),set(9,12),get(7),get(5),get(8),get(9),set(4,30),set(9,3),get(9),get(10),get(10),set(6,14),set(3,1),get(3),set(10,11),get(8),set(2,14),get(1),get(5),get(4),set(11,4),set(12,24),set(5,18),get(13),set(7,23),get(8),get(12),set(3,27),set(2,12),get(5),set(2,9),set(13,4),set(8,18),set(1,7),get(6),set(9,29),set(8,21),get(5),set(6,30),set(1,12),get(10),set(4,15),set(7,22),set(11,26),set(8,17),set(9,29),get(5),set(3,4),set(11,30),get(12),set(4,29),get(3),get(9),get(6),set(3,4),get(1),get(10),set(3,29),set(10,28),set(1,20),set(11,13),get(3),set(3,12),set(3,8),set(10,9),set(3,26),get(8),get(7),get(5),set(13,17),set(2,27),set(11,15),get(12),set(9,19),set(2,15),set(3,16),get(1),set(12,17),set(9,1),set(6,19),get(4),get(5),get(5),set(8,1),set(11,7),set(5,2),set(9,28),get(1),set(2,2),set(7,4),set(4,22),set(7,24),set(9,26),set(13,28),set(11,26"
-actions = action_s.split('),')
-for action in actions:
-    print action
-    func = action.split('(')[0]
-    if func == "set":
-        v1, v2 = map(int, action.split('(')[1].split(','))
-        getattr(lru, func)(v1, v2)
-    else:
-        v = int(action.split('(')[1])
-        print getattr(lru, func)(v)
-
+        min_p = p[0]
+        for i in xrange(1, n):
+            left.append(max(p[i] - min_p, left[i-1]))
+            min_p = min(p[i], min_p)
+        print left
+        max_p = p[-1]
+        for i in xrange(n-2, -1, -1):
+            right[i] = max(max_p - p[i], right[i+1])
+            max_p = max(p[i], max_p)
+        print right
+        max_profit = 0
+        for i in xrange(n):
+            max_profit = max(left[i] + right[i], max_profit)
+        return max_profit
+a = [6,1,3,2,4,7]
+print  maxProfit(a)
