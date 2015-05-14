@@ -261,7 +261,12 @@ that negetive on the left, positives on the right, their relative positon
 retains the same.
 eg: [-1,1,3,-3,2] becomes [-1,-3,1,3,2]
 """
-# Recursively 'sort' n/2 of the array, becomes A1A2 and B1B2
+# a. Naive:
+# Use two array to store positive and negetive seperatly
+# Then combine these two arrays.
+# O(n) time, O(n) space
+
+# b. Recursively 'sort' n/2 of the array, becomes A1A2 and B1B2
 # inverse A2 -> A2', B1 -> B1'
 # inverse A2'B1' -> B1A2, the total array becomes A1B1A2B2
 # O(log n) time and O(1) space

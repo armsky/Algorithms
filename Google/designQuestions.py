@@ -44,4 +44,15 @@ class LRUCache:
             self.cl.remove(self.table[key])
             self.table[key] = value
             self.cl.append(self.table[key])
+"""
+3. Thread safe singleton pattern
+"""
 
+
+"""
+4. Write a hadoop map/reduce
+"""
+
+"""
+5. How to construct web Server
+"""
