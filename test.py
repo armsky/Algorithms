@@ -1,26 +1,71 @@
-def maxProfit( prices):
-        if not prices:
-            return 0
-        p = prices
-        n = len(p)
-        # Use two arrays, left[i] means until ith element the max profit
-        # right[i] means the max profit from ith to the array end
-        left = [0]
-        right = [0]*n
 
-        min_p = p[0]
-        for i in xrange(1, n):
-            left.append(max(p[i] - min_p, left[i-1]))
-            min_p = min(p[i], min_p)
-        print left
-        max_p = p[-1]
-        for i in xrange(n-2, -1, -1):
-            right[i] = max(max_p - p[i], right[i+1])
-            max_p = max(p[i], max_p)
-        print right
-        max_profit = 0
-        for i in xrange(n):
-            max_profit = max(left[i] + right[i], max_profit)
-        return max_profit
-a = [6,1,3,2,4,7]
-print  maxProfit(a)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+import threading
+
+
+# Based on tornado.ioloop.IOLoop.instance() approach.
+# See https://github.com/facebook/tornado
+class SingletonMixin(object):
+	__singleton_lock = threading.Lock()
+	__singleton_instance = None
+
+	@classmethod
+	def instance(cls):
+		if not cls.__singleton_instance:
+			with cls.__singleton_lock:
+				if not cls.__singleton_instance:
+					cls.__singleton_instance = cls()
+		return cls.__singleton_instance
+
+
+if __name__ == '__main__':
+	class A(SingletonMixin):
+		pass
+
+	class B(SingletonMixin):
+		pass
+
+	a, a2 = A.instance(), A.instance()
+	b, b2 = B.instance(), B.instance()
+
+	assert a is a2
+	assert b is b2
+	assert a is not b
+
+	print('a:  %s\na2: %s' % (a, a2))
+        print threading.current_thread()
+	print('b:  %s\nb2: %s' % (b, b2))
+        print threading.current_thread()

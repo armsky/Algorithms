@@ -17,7 +17,7 @@ N & 7	= last 3 bits in N, N & (pow(2, k)-1) = last k bits in N
 while n > 0:
     count += n & 1
     n = n >> 1
-# b. N & (N-1) will turn off the first set bit
+# b. N & (N-1) will turn off the first set bit （hamming weight)
 while n > 0:
     n = n & (n-1)
     count += 1
@@ -36,5 +36,5 @@ b = a ^ b
 a = a ^ b
 
 """
-1. Convert decimal to binary
+3. Convert decimal to binary
 """

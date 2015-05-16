@@ -47,7 +47,21 @@ class LRUCache:
 """
 3. Thread safe singleton pattern
 """
+# https://gist.github.com/werediver/4396488
+import threading
 
+class SingletonClass(object):
+    __singleton_lock = threading.Lock()
+    __singleton_instance = None
+
+    @classmethod
+    def instance(cls):
+        if not cls.__singleton_instance:
+            with cls.__sinleton_lock:
+                if not cls.__singleton_instance:
+                    # cls(): same thing as SingletonClass()
+                    cls.__singleton_instance = cls()
+        return cls.__singleton_instance
 
 """
 4. Write a hadoop map/reduce
@@ -56,3 +70,16 @@ class LRUCache:
 """
 5. How to construct web Server
 """
+
+"""
+6. Design an effective data structure for a phone book, which allows searching by name and also searching by number.
+(Similiar to design a auto-complete function)
+"""
+# Use Trie Tree
+
+
+"""
+7. Design a data structure with all the features of a stack, but with O(1) lookup for the max element currently in the structure.
+"""
+# Create two stacks, one is for storing all elements, the other one only store
+# 'max element so far'
