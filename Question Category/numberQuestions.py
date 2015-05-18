@@ -123,10 +123,20 @@ def has_three_set_bits(n):
 	    return False
 	n = n & (n-1)
     return n == 0
-	
+
 """
 9. Given a array of numbers, find two with their sum closed to 0
 """
-# Sort the array by their absolute values, and find each adjacent ones 
+# Sort the array by their absolute values, and find each adjacent ones
 # i.e.: 10, -50, -20, 1, 2 , -5, 51, 70 => 1, 2, -5, 10, -20, -50, 51, 70
 # will easily find -50 and 51
+
+"""
+10. New N Fibonacci sequence, not adding the last 2 element's but add the last n elements
+EX. For n=3. Sequence =  1 1 1 3 5 9 17 ...
+"""
+# Observe that s[i] = 2* s[i-1] - s[i-n]
+for i in xrange(n):
+    s.append(1)
+for i in xrange(n, target):
+    s.append(2 * s[i-1] - s[i-n])

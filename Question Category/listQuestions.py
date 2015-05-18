@@ -130,3 +130,57 @@ def merge_lists(ll):
         if cur.next is not None:
             heappush(heap, cur.next)
     return dummy.next
+"""
+5. Given a list of size n and possible values from 0 to n. Find the missing number
+"""
+# (Sum of 0..n) - (Sum of list)
+
+"""
+6. Flatten a 2D linked list.
+A node contains 3 parameters namely, data , pointer to right, pointer to down . The aim of the function is to flatten the linkedlist.
+
+Ex: 1-->2-->4
+        |
+        V
+        3
+
+Answer is 1-->2-->3-->4
+
+Ex: 1 --> 2--> 3--> 4
+               |
+               5-->6-->7
+               |   |
+               8   9
+
+Answer is 1-->2->5 -> 8 -> 6->9 ->7-> 3-> 4
+"""
+#a. use a stack
+def flatten(head):
+    s = []
+    s.append(head)
+    dummy = Node(None)
+    cur = dummy
+    while s:
+        cur.next = s.pop()
+        cur = cur.next
+        if cur.right is not None:
+            s.append(cur.right)
+        if cur.down is not None:
+            s.append(cur.down)
+            cur.down = None
+            cur.right = None
+    return head
+#b. recursively
+def flatten(head):
+    if head is None:
+        return head
+    next_node = head.right
+    if head.down is not None:
+        head.next = flatten(head.down)
+        head.down = None
+        pointer = head.right
+        while pointer.right is not None:
+            pointer = pointer.right
+        pointer.next = next_node
+    flatten(next_node)
+    return head

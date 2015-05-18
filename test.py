@@ -1,71 +1,46 @@
+class Node():
+    def __init__(self, data):
+        self.data = data
+        self.right = None
+        self.down = None
+        self.next = None
 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-import threading
+def flatten(head):
+    s = []
+    s.append(head)
+    dummy = Node(None)
+    cur = dummy
+    while s:
+        cur.next = s.pop()
+        cur = cur.next
+        if cur.right is not None:
+            s.append(cur.right)
+        if cur.down is not None:
+            s.append(cur.down)
+            cur.down = None
+            cur.right = None
+    return head
 
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node5 = Node(5)
+node6 = Node(6)
+node7 = Node(7)
+node8 = Node(8)
+node9 = Node(9)
+node1.right = node2
+node2.right = node3
+node3.right = node4
+node2.down = node5
+node5.down = node8
+node5.right = node6
+node6.down = node9
+node6.right = node7
 
-# Based on tornado.ioloop.IOLoop.instance() approach.
-# See https://github.com/facebook/tornado
-class SingletonMixin(object):
-	__singleton_lock = threading.Lock()
-	__singleton_instance = None
-
-	@classmethod
-	def instance(cls):
-		if not cls.__singleton_instance:
-			with cls.__singleton_lock:
-				if not cls.__singleton_instance:
-					cls.__singleton_instance = cls()
-		return cls.__singleton_instance
-
-
-if __name__ == '__main__':
-	class A(SingletonMixin):
-		pass
-
-	class B(SingletonMixin):
-		pass
-
-	a, a2 = A.instance(), A.instance()
-	b, b2 = B.instance(), B.instance()
-
-	assert a is a2
-	assert b is b2
-	assert a is not b
-
-	print('a:  %s\na2: %s' % (a, a2))
-        print threading.current_thread()
-	print('b:  %s\nb2: %s' % (b, b2))
-        print threading.current_thread()
+head = flatten(node1)
+while head.next is not None:
+    print head.data
+    head = head.next
+print haed.data

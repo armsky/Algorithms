@@ -362,3 +362,50 @@ def isSymmetric(self, root):
     if root:
         return self.help(root.left, root.right)
     return True
+
+"""
+14. Check if a BST is another BST's subtree
+"""
+# a. Compare each node recursively
+# Worst O(mn) time
+def is_subtree(root, target):
+    if target is None:
+        return True
+    if root is None:
+        return False
+    if are_identical(root, target):
+        return True
+    return self.is_subtree(root.left, target)
+            or self.is_subtree(root.right, target)
+def are_indentical(node1, node2):
+    if node1 is None and node2 is None:
+        return True
+    if ndoes is None or node2 is None:
+        return False
+    return node1.data == node2.data and
+            self.are_identical(node1.left, node2.left) and
+            self.are_identical(node1.right, node2.right)
+
+# b. Could be solved in O(n) time if traverse each BST in-orderly and pre-orderly, and save them as arrays. The test if one of them is other’s subarray for both arrays.
+
+# NOTE: must test in-order and pre-order. Consider the case below, B is not a subtree of A, but B’s in-order array is a subarray of A’s in-order array.
+"""
+        Tree A
+          x
+        /    \
+      a       b
+     /
+    c
+
+
+        Tree B
+          x
+        /    \
+      a       b
+     /         \
+    c            d
+"""
+
+"""
+15. Two trees are in same set of numbers. Find their longest common path.
+"""
