@@ -117,8 +117,7 @@ def findMedian(root):
 #     - If less than top of max-heap, insert to max-heap with O(log n)
 #     - If two heaps differs by more than 1, pop the longer heap and insert to the other,
 #       which is O(log n) + O(log n)
-#     - If the element is between the values of the two tops, insert it to the shorter
-#       one, or if either one if they are equal
+#     - If the element is between the values of the two tops, insert it to the shorter one, or if either one if they are equal
 def addNewNumber(num):
     if minHeap.size() == maxHeap.size()
         if minHeap.peek() is not None and num > minHeap.peek():

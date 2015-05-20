@@ -25,9 +25,7 @@ def selectionSort(aList):
             if aList[j] < aList[minIndex]:
                 minIndex = j
         if minIndex != i:
-            temp = aList[i]
-            aList[i] = aList[minIndex]
-            aList[minIndex] = temp
+            aList[i], aList[minIndex] = aList[minIndex], aList[i]
 
 # O(n^2), stable and adaptive.
 # O(n) when the array is almost sorted. Don't chek the array is already sorted on every step.

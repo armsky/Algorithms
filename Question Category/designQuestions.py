@@ -83,3 +83,8 @@ class SingletonClass(object):
 """
 # Create two stacks, one is for storing all elements, the other one only store
 # 'max element so far'
+
+"""
+8. Given a large collection of characters and a dictionary   , find an efficient algorithm to return the 10 longest words you can form using the characters in the collection.
+"""
+# Use a Trie to store the dictionary, use a min heap to find top 10.

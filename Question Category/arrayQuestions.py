@@ -302,3 +302,9 @@ def find_kth(a, l, r, k):
         return find_kth(a, l, pos-1, k)
     else:
         return find_kth(a, pos+1, r, k-(pos-l)-1)
+
+"""
+13. You have a collection of servers that store integers in an unsorted order. Each server can have a different number of integers. If a user wanted to find the median at any given time, how would you find the median?
+"""
+# Still use the methods above
+# Details see http://www.quora.com/Distributed-Algorithms/What-is-the-distributed-algorithm-to-determine-the-median-of-arrays-of-integers-located-on-different-computers
