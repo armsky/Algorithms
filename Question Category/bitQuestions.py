@@ -38,3 +38,36 @@ a = a ^ b
 """
 3. Convert decimal to binary
 """
+
+"""
+4. Flip 32 bits unsigned integers
+"""
+num = int(num_string)
+num = num ^ 0xffffffff
+
+"""
+5. AND product.
+Given two integers a and b, compute the bitwise AND amongst all natual numbers
+lying between a and b, both inclusive. (0 <= a <= b <= 2^32)
+"""
+def and_product(a, b):
+    counter = 0
+    while a != b:
+        a = a >> 1
+        b = b >> 1
+        counter += 1
+    print a << counter
+
+"""
+6. Given a array, XOR all subarrays of it.
+Note: if the array have even number of elements, it must be 0
+If it has odd elements, only need to XOR it's odd index elements.
+"""
+if n %2 == 0:
+        print 0
+else:
+    result = 0
+    for j in xrange(n):
+        if (j+1) % 2 == 1:
+            result = result ^ nums[j]
+    print result

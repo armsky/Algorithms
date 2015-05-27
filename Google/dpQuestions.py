@@ -27,7 +27,7 @@ def max_sub_non_con(a):
 """
 2. Stock Maximize
 Given an array of stock share price, each day, you can either buy one share,
-sellany number of shares or not make any transaction. What is the maximum
+sell any number of shares or not make any transaction. What is the maximum
 profit you can get.
 """
 #NOTE: Stock trade is easy if time goes backwards!
@@ -60,61 +60,61 @@ def maxProfit(self, prices):
 # b. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
 # The problem becomes to find each ascending sub-array, buy stock at the first
 # day of sub-array, sell the stock at the end of the sub-array. since the total
-# delta equals the sum of difference of each adjacent element: 
+# delta equals the sum of difference of each adjacent element:
 def maxProfit(self, prices):
-        delta = 0
-        if not prices:
-            return 0
-        for i in xrange(1, len(prices)):
-            if prices[i] > prices[i-1]:
-                delta += prices[i] - prices[i-1]
-                 
-        return delta
+    delta = 0
+    if not prices:
+        return 0
+    for i in xrange(1, len(prices)):
+        if prices[i] > prices[i-1]:
+            delta += prices[i] - prices[i-1]
+
+    return delta
 # c. You may complete at most two transactions.
 def maxProfit(self, prices):
-        if not prices:
-            return 0
-        p = prices
-        n = len(p)
-        # Use two arrays, left[i] means until ith element the max profit
-        # right[i] means the max profit from ith to the array end
-        left = [0]
-        right = [0]*n
-         
-        min_p = p[0]
-        for i in xrange(1, n):
-            left.append(max(p[i] - min_p, left[i-1]))
-            min_p = min(p[i], min_p)
-         
-        max_p = p[-1]
-        for i in xrange(n-2, -1, -1):
-            right[i] = max(max_p - p[i], right[i+1])
-            max_p = max(p[i], max_p)
-         
-        max_profit = 0
-        for i in xrange(n):
-            max_profit = max(left[i] + right[i], max_profit)
-        return max_profit
+    if not prices:
+        return 0
+    p = prices
+    n = len(p)
+    # Use two arrays, left[i] means until ith element the max profit
+    # right[i] means the max profit from ith to the array end
+    left = [0]
+    right = [0]*n
+
+    min_p = p[0]
+    for i in xrange(1, n):
+        left.append(max(p[i] - min_p, left[i-1]))
+        min_p = min(p[i], min_p)
+
+    max_p = p[-1]
+    for i in xrange(n-2, -1, -1):
+        right[i] = max(max_p - p[i], right[i+1])
+        max_p = max(p[i], max_p)
+
+    max_profit = 0
+    for i in xrange(n):
+        max_profit = max(left[i] + right[i], max_profit)
+    return max_profit
 # d. You may complete at most k transactions.
 # Use two array global[i][j] and local[i][j]
 # Global means in ith day, make j transactions the best profit
 # Local means ... and sell all in jth transaction, the profit (not best)
 # O(k*n) time, O(k) space
 def maxProfit(self, k, prices):
-        p = prices
-        if not p:
-            return 0
-        if k > len(p):
-            # Use scenario II
-            return
-        g = [0] * (k+1)
-        l = [0] * (k+1)
-        for i in xrange(len(p)-1):
-            diff = p[i+1] - p[i]
-            for j in xrange(k, 0, -1):
-                l[j] = max(g[j-1] + max(diff, 0), l[j] + diff)
-                g[j] = max(g[j], l[j])
-        return g[k]
+    p = prices
+    if not p:
+        return 0
+    if k > len(p):
+        # Use scenario II
+        return
+    g = [0] * (k+1)
+    l = [0] * (k+1)
+    for i in xrange(len(p)-1):
+        diff = p[i+1] - p[i]
+        for j in xrange(k, 0, -1):
+            l[j] = max(g[j-1] + max(diff, 0), l[j] + diff)
+            g[j] = max(g[j], l[j])
+    return g[k]
 
 """
 3. Longest Increasing Subsequence
