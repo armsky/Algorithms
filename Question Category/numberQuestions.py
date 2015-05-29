@@ -21,7 +21,27 @@ def primeFactor(num):
     if num > 2:
         result.append(num)
     return result
+"""1.3: Find all prime numbers smaller than N"""
+# Sieve of Eratosthenes algorithm
+#   1. create a list of consecutive integers from 2 to n
+#   2. start from p, mark 2p, 3p, 4p... they are not prime
+#   3. the first number greater than p is prime, repear step 2
+def sieve(n):
+    result = []
+    if n >= 2: # no prime smaller than 2
+        arr = [0] * n # arr[i]==0 means prime, arr[i]==1 means not prime
+        for i in xrange(1, n):
+            if arr[i] == 0:
+                result.append(i+1)
+                mark_multiples(arr, i+1, n)
+    return result
 
+def mark_multiples(arr, a, n)
+    # mark all multiples of 'a' but <= n as 1
+    i = 2
+    while i*a <= n:
+        arr[i*a -1] = 1 # because index starts from 0
+        i += 1
 
 """
 2. check whether an integer is a palindrome without using arrays.

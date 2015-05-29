@@ -71,3 +71,32 @@ else:
         if (j+1) % 2 == 1:
             result = result ^ nums[j]
     print result
+
+"""
+7. Reverse bits in an integer
+"""
+# Say this integer has M bits
+def reverse_bits(n, M):
+    N = 1 << M
+    r = n # will store the bit-revevrsed pattern
+    for i in xrange(M):
+        n >> 1
+        r << 1
+        r |= n&1 # Give LSB of n to r
+    r &= N-1 # N-1 is a mask, will clear all bits more significant than N-1
+    return r
+
+# A improved version
+def reverse(n, M):
+    N = 1 << M
+    count = M -1
+    r = n
+
+    while n != 0:
+        n >> 1
+        r << 1
+        r |= n&1
+        count -= 1
+    r << count
+    r &= N-1
+    return r

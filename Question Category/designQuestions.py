@@ -85,6 +85,19 @@ class SingletonClass(object):
 # 'max element so far'
 
 """
-8. Given a large collection of characters and a dictionary   , find an efficient algorithm to return the 10 longest words you can form using the characters in the collection.
+8. Given a large collection of characters and a dictionary, find an efficient algorithm to return the 10 longest words you can form using the characters in the collection.
 """
 # Use a Trie to store the dictionary, use a min heap to find top 10.
+
+"""
+how to design a web server that monitors the usage of backend servers and
+display results
+"""
+
+"""
+Design a Poker Cards class
+"""
+
+"""
+Visitor Pattern for search different lines in a file?
+"""
