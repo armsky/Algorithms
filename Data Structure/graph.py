@@ -31,7 +31,7 @@ def BFS(s):
     queue = Queue.Queue()
     queue.put(s)
     visited[s] = 1
-    while queue is not None:
+    while not queue.empty:
         s = queue.get()
         print s
         # Get all adjacent vertices of the dequeued s
