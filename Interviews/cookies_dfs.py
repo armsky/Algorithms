@@ -100,15 +100,17 @@ def DFS(word, result, x, y, dx, dy, grid):
     target = word[0]
     cors = search_nearby(x, y, dx, dy, target, grid)
     print target, cors
-    if cors:
-        for i, j, di, dj in cors:
-            if dx==dy==0 or (dx == di and dy == dj):
-                result.append((i, j))
-                if len(word) == 1:
-                    print result, target, cors
-                    return result
-                else:
-                    return DFS(word[1:], result, i, j, di, dj, grid)
+
+    for i, j, di, dj in cors:
+        if dx==dy==0 or (dx == di and dy == dj):
+            result.append((i, j))
+            if len(word) == 1:
+                print result, target, cors
+                return result
+            else:
+                if not DFS(word[1:], result, i, j, di, dj, grid):
+                    del result[-1]
+                    pass
     else:
         return []
 
@@ -127,7 +129,7 @@ for word in words:
     print first_cors
     for x,y in first_cors:
         word_cors = DFS(word[1:], [(x, y)], x, y, 0, 0, char_grid)
-        print word_cors
+        print "###", word_cors
         if len(word_cors) == len(word):
             result.append(word_cors)
             print word_cors

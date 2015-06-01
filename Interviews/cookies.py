@@ -72,7 +72,7 @@ words = ["ALMOND",
 
 def search_nearby(i, j, target, grid):
 
-    for x in xrange(i, i+2):
+    for x in xrange(i-1, i+2):
         for y in xrange(j-1, j+2):
             if x >= 0 and x < len(grid) and \
                 y >= 0 and y < len(grid[0]) and \
