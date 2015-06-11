@@ -14,7 +14,7 @@ def nextPermutation(s):
     i -= 1
     """
     Find the highest index j > i such that s[j] > s[i].
-    Such a j must exist, since i+1 is such an index.
+    Such a j must exist, since at least i+1 is such an index.
     """
     for j in reversed(xrange(i+1, len(s))):
         if s[j] > s[i]:
@@ -27,4 +27,5 @@ def nextPermutation(s):
     Reverse all the order of all of the elements after index i
     """
     s[i+1 :] = reversed(s[i+1 : ])
+    # s[i+1:].sort()
     return s
