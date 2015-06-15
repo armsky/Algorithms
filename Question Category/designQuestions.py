@@ -90,14 +90,14 @@ class SingletonClass(object):
 # Use a Trie to store the dictionary, use a min heap to find top 10.
 
 """
-how to design a web server that monitors the usage of backend servers and
+9. how to design a web server that monitors the usage of backend servers and
 display results
 """
 
 """
-Design a Poker Cards class
+10. Design a Poker Cards class
 """
 
 """
-Visitor Pattern for search different lines in a file?
+11. Visitor Pattern for search different lines in a file?
 """

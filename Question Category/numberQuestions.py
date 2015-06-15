@@ -21,7 +21,10 @@ def primeFactor(num):
     if num > 2:
         result.append(num)
     return result
-"""1.3: Find all prime numbers smaller than N"""
+"""
+1.3: Find all prime numbers smaller than N
+Much quicker than above.
+"""
 # Sieve of Eratosthenes algorithm
 #   1. create a list of consecutive integers from 2 to n
 #   2. start from p, mark 2p, 3p, 4p... they are not prime
