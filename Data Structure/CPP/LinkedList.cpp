@@ -7,15 +7,6 @@
 
 using namespace std;
 
-struct Node {
-    Node *next;
-    int data;
-public:
-    Node(int d)
-            :data(d), next(NULL)
-    {}
-};
-
 Node *head = NULL;
 
 void appendToTail(int d){
