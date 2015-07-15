@@ -10,7 +10,7 @@ max heap: the largest key is always at the front
 Time        Insert      Find Min
 Linked List O(1)        O(n)
 BST         O(log n)    O(log n)
-Binary heap O(log n)    O(log n)
+Binary heap O(log n)    O(log n) find only take O(1), but need adjust
 
 Deleting the min element takes constant time
 But then the structure need to be adjusted, need O(log n) time

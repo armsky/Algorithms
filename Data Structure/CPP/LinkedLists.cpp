@@ -106,6 +106,56 @@ Node* findK(Node *head, int k, int &i){
 }
 // 2). use two pointers, with k nodes apart
 
+/*
+ * 2.3 delete a node in the middle of a singly linked list.
+ * Given only access to that node, no access to head.
+ */
+bool deleteMid(Node* node){
+    if (!node || !node->next)
+        return false;
+    Node *nex = node->next;
+    node->data = nex->data;
+    node->next = nex->next;
+    return true;
+}
+
+/*
+ * 2.4 Partition a linked list around a value x, all nodes less than x before all nodes >= x.
+ */
+// Create two new lists and merge them
+
+/*
+ * 2.5 Sum of two linked lists.
+ * Input: (7->1->6)+(5->9->2) that is 617+295
+ * Output: 2->1->9 that is 912
+ */
+Node* linkSum(Node *head1, Node *head2){
+    int carry = 0;
+    Node* newNode;
+    Node* dummy;
+    dummy->next = newNode;
+    while (head1 && head2) {
+        int sum = head1->data + head2->data + carry;
+        newNode->data = sum;
+        carry = 0;
+        if (sum >= 10) {
+            sum = sum % 10;
+            carry = 1;
+        }
+        head1 = head1->next;
+        head2 = head2->next;
+        if (head1 || head2) {
+            newNode->next = new Node(0);
+            newNode = newNode->next;
+        }
+    }
+    if (head1)
+        newNode->next = head1;
+    if (head2)
+        newNode->next = head2;
+    return dummy->next;
+}
+
 int main(){
     Node *head = new Node(1);
     head->appendToTail(2);
@@ -114,12 +164,22 @@ int main(){
     head->appendToTail(5);
     head->appendToTail(3);
     head->display();
+    Node *head2 = new Node(7);
+    head2->appendToTail(8);
+    head2->appendToTail(9);
+    head2->display();
     // 2.1
 //    removeDup2(head);
 //    head->display();
     // 2.2
-    Node* node = findK(head, 2, 0);
-    cout << node->data;
+//    Node* node = findK(head, 2, 0);
+//    cout << node->data;
+    // 2.3
+//    cout << deleteMid(head->next->next);
+//    head->display();
+    // 2.4
+    Node* head3 = linkSum(head, head2);
+    head3->display();
 
     return 0;
 }

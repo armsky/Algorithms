@@ -33,7 +33,7 @@ Difference between hash table and hash map:
     hashed key/data in sorted order. It has O(1) lookup and insert
     in most cases.
   2. If the initial table size is not enough, need to resize the table, and
-    transfet the keys form old table to new table by a new hash function.
+    transfer the keys from old table to new table by a new hash function.
 
 """
 
