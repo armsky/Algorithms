@@ -108,7 +108,7 @@ def findMedian(root):
 # I.- Create a _balanced_ BST of first K numbers
 #   - Find median of first K numbers
 #   - Inset new number in BST and delete the first number of BST
-#   - If the inseted on is greater that median, return the successor of median
+#   - If the inserted on is greater that median, return the successor of median
 #   - If less than median, return the predecessor of median
 
 # II. - Create two heaps, one max-heap, one min-heap
@@ -273,13 +273,13 @@ def isBalanced(root):
     return False
 # II. O(n) optimization, calculate the height in same recursion
 height = 0
-def isBalanced(root):
+def isBalanced(root, height):
     lh = 0
     rh = 0
-    #lb, rm means left subtree is balanced
+    #lb, rb means left subtree is balanced
     lb = False
     rb = False
-    if root ==0:
+    if root is None:
         return True
     lb = isBalanced(root.left, lh)
     rb = isBalanced(root.right, rh)
@@ -348,7 +348,7 @@ def find_succ(root, node):
 
 """
 13. Symmetric Tree.
-Given a binary tree, check whether it is a mirrot of itself
+Given a binary tree, check whether it is a mirror of itself
 """
 def help(self, p, q):
     if p == None and q == None:

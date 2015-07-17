@@ -65,7 +65,7 @@ def DFSUtil(v, visited):
     print v # define travesal function here
     for i in xrange(len(adj[v])):
         if visited[i] == 0:
-            DFSUtil(1, visited)
+            DFSUtil(i, visited)
 
 def DFS(V):
     visited = [0] * V

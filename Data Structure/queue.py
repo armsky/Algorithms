@@ -16,8 +16,8 @@ BASIC OPERATIONS:
     -Push the new element onto inbox (stack 1)
 2. Dequeue:
     -If outbox is empty, refill it by popping each element from inbox
-     and pushing it onto outbox (stack 2). If not empty, pop
-    -Pop and return the top element from outbox
+     and pushing it onto outbox (stack 2).
+    -If outbox is not empty: Pop and return the top element from outbox
 """
 class Queue():
     inbox = list()
