@@ -13,8 +13,8 @@ Space: O(n)
 
 
 - A collision is when two keys hash to the same index.
-    When collision happens, Use a linked list to chain ellements in the same
-    bucket.
+    1. Use a linked list to chain elements in the same bucket.
+    2. Increase the table size and re-hash and do modulo calculations
 - If all keys are known ahead of time, a "perfect hash function" can be used to create
     a perfect hash table that has no collisions. If minimal perfect hashing is used,
     every location in the hash table can be used as well.

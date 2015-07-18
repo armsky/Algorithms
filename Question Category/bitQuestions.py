@@ -1,13 +1,13 @@
 """
 NOTE:
-1. OR: is used to setting a bit.( | 1 )
-2. AND: is used to clearing a bit ( & 0 )
-3. XOR: for flipping bit ( ^ 1 ) x^1 = ~x
+1. OR | : is used to setting a bit.( | 1 )
+2. AND & : is used to clearing a bit ( & 0 )
+3. XOR ^ : for flipping bit ( ^ 1 ) x^1 = ~x
 Usages:
 N << k = N*(pow(2,k))
 N >> k = floor(N/pow(2,k))
 N & 7	= last 3 bits in N, N & (pow(2, k)-1) = last k bits in N
-~N + 1 = -N
+~N + 1 = -N , ~N = -N - 1
 """
 
 """
@@ -100,3 +100,18 @@ def reverse(n, M):
     r << count
     r &= N-1
     return r
+
+"""
+8. Bitwise AND of Numbers Range
+Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+
+For example, given the range [5, 7], you should return 4.
+NOTE: Only need to see the common left bits (left header)
+"""
+def rangeBitwiseAnd(self, m, n):
+    p = 0
+    while m != n:
+        m >>= 1
+        n >>= 1
+        p += 1
+    return m << p

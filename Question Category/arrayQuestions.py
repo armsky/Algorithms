@@ -183,7 +183,8 @@ def find(a, x):
     table = {}
     for num in nums:
         if target - num in table:
-            if num != target -num:
+            # make sure
+            if num != target - num:
                 return [nums.index(target- num)+1, nums.index(num)+1]
             else:
                 occs = [j for j, x in enumerate(nums) if x == num]
@@ -256,7 +257,7 @@ def find_median(a, m, b, n):
 # O(x) time, O(N) space
 
 """
-11. Given an array with negetive and positive numbers, 'sort' them
+11. Relative sort: Given an array with negetive and positive numbers, 'sort' them
 that negetive on the left, positives on the right, their relative positon
 retains the same.
 eg: [-1,1,3,-3,2] becomes [-1,-3,1,3,2]

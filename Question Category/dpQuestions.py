@@ -1,4 +1,23 @@
 """
+Dynamic Programming is an algorithmic paradigm that solves a given
+complex problem by breaking it into subproblems and stores the results
+of subproblems to avoid computing the same results again.
+If a problem can be solved using DP, usually has such two main properties:
+    1. Overlapping Subproblems (BST is not a DP problem since it don't has common problems)
+    2. Optimal Substructure
+"""
+"""
+I. For overlapping problem, we have:
+    a. Memoization (Top Down): Initialize a lookup table with nil values, whenevert we need
+        solution to a subproblem, we first look into the lookup table before calculate, it
+        the value not there, we calculate and put the result into table
+    b. Tabulation (Bottom Up): build a table by filling entries one by one
+II.For Optimal Substructure: a optimal solution of the given problem can be obtained
+   by using optimal solutions of its subproblems.
+   A shortest path problem can use this way, but longest path cannot
+"""
+
+"""
 1. Find Maximum subarray:
 Given an array of n elements, find the maximum possible sum of a :
     1. contiguous subarray
@@ -264,65 +283,4 @@ def longestpalindromic(a):
                     start = i
                     maxLength = k
     return a[start : start + k]
-"""
-9. More stock buy and sell
-"""
-# I. Only one transction, max profit (easy)
-# II. Multiple transctions (but not in the same time)
-#       Find each ascending sub-array, use the greatest minus the smallest
-#       Equivalent to add up each positive delta
-def maxProfit(self, prices):
-    delta = 0
-    if not prices:
-        return 0
-    for i in xrange(1, len(prices)):
-        if prices[i] > prices[i-1]:
-            delta += prices[i] - prices[i-1]
 
-    return delta
-# III. Can only do at most 2 transactions
-# Need two arrays left and right to store: if the array split
-# at the ith place, left and right sub-array's best profit
-# Then add the up and use the max one
-def maxProfit(self, prices):
-    if not prices:
-        return 0
-    p = prices
-    n = len(p)
-    left = [0]
-    right = [0]*n
-
-    min_p = p[0]
-    for i in xrange(1, n):
-        left.append(max(p[i] - min_p, left[i-1]))
-        min_p = min(p[i], min_p)
-
-    max_p = p[-1]
-    for i in xrange(n-2, -1, -1):
-        right[i] = max(max_p - p[i], right[i+1])
-        max_p = max(p[i], max_p)
-
-    max_profit = 0
-    for i in xrange(n):
-        max_profit = max(left[i] + right[i], max_profit)
-    return max_profit
-# IV. At most k transactions.
-# Use two array global[i][j] and local[i][j]
-# Global means in ith day, make j transactions the best profit
-# Local means ... and sell all in jth transaction, the profit (not best)
-# O(k*n) time, O(k) space
-def maxProfit(self, k, prices):
-    p = prices
-    if not p:
-        return 0
-    if k > len(p):
-        # Use scenario II
-        return
-    g = [0] * (k+1)
-    l = [0] * (k+1)
-    for i in xrange(len(p)-1):
-        diff = p[i+1] - p[i]
-        for j in xrange(k, 0, -1):
-            l[j] = max(g[j-1] + max(diff, 0), l[j] + diff)
-            g[j] = max(g[j], l[j])
-    return g[k]
