@@ -309,3 +309,31 @@ def find_kth(a, l, r, k):
 """
 # Still use the methods above
 # Details see http://www.quora.com/Distributed-Algorithms/What-is-the-distributed-algorithm-to-determine-the-median-of-arrays-of-integers-located-on-different-computers
+
+"""
+14.Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. If there isn't one, return 0 instead.
+
+For example, given the array [2,3,1,2,4,3] and s = 7,
+the subarray [4,3] has the minimal length under the problem constraint.
+"""
+# 1. Two loops: O(n^2)
+# 2. Sliding window: O(n)
+def minSubArrayLen(self, s, nums):
+    start = end = sum = 0
+    n = len(nums) + 1
+
+    while True:
+        if sum < s:
+            if end >= len(nums):
+                break
+            else:
+                sum += nums[end]
+                end += 1
+        else:
+            if end - start < n:
+                n = end -start
+            if start >= len(nums):
+                break
+            sum -= nums[start]
+            start += 1
+    return [0, n][n <= len(nums)] # [0, n][True]=n, [0, n][False]=0, like a 2D list
