@@ -321,7 +321,6 @@ the subarray [4,3] has the minimal length under the problem constraint.
 def minSubArrayLen(self, s, nums):
     start = end = sum = 0
     n = len(nums) + 1
-
     while True:
         if sum < s:
             if end >= len(nums):
@@ -337,3 +336,20 @@ def minSubArrayLen(self, s, nums):
             sum -= nums[start]
             start += 1
     return [0, n][n <= len(nums)] # [0, n][True]=n, [0, n][False]=0, like a 2D list
+# 3. Binary enumeration: O(n log n)
+
+"""
+15. Container With Most Water
+Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+"""
+def maxArea(self, height):
+    l = 0
+    r = len(height) - 1
+    v = r * min(height[l], height[r])
+    while l < r:
+        if height[l] <= height[r]:
+            l += 1
+        else:
+            r -= 1
+        v = max(v, (r-l) * min(height[l], height[r]))
+    return v
