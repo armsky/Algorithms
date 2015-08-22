@@ -1,4 +1,6 @@
-# Generates the next permutation lexicographically after a given permutation.
+"""
+1.Generates the next permutation lexicographically after a given permutation.
+"""
 # It changes the given permutation in-place.
 def nextPermutation(s):
     # s is a array(list in python)
@@ -31,40 +33,7 @@ def nextPermutation(s):
     return s
 
 """
-2. The set [1,2,3,...,n] contains a total of n! unique permutations.
-
-By listing and labeling all of the permutations in order,
-We get the following sequence (ie, for n = 3):
-
-"123"
-"132"
-"213"
-"231"
-"312"
-"321"
-Given n and k, return the kth permutation sequence.
-
-Note: Given n will be between 1 and 9 inclusive.
-"""
-
-def getPermutation(self, n, k):
-    nums = []
-    factorial = [1] * (n+1)
-    for i in xrange(1, n+1):
-        nums.append(str(i))
-        factorial[i] = factorial[i-1] * i
-
-    result = ""
-    k -= 1
-    for i in xrange(n, 0, -1):
-        j = k / factorial[i-1]
-        k = k % factorial[i-1]
-        result += nums[j]
-        del nums[j]
-
-    return result
-"""
-3. Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+2. Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
 
 For example,
 If n = 4 and k = 2, a solution is:
@@ -97,4 +66,41 @@ class Solution:
             stack.append(i)
             self.get_combination(n, k, i+1, stack, result)
             stack.pop()
+
+"""
+3. The set [1,2,3,...,n] contains a total of n! unique permutations.
+
+By listing and labeling all of the permutations in order,
+We get the following sequence (ie, for n = 3):
+
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+Given n and k, return the kth permutation sequence.
+
+Note: Given n will be between 1 and 9 inclusive.
+"""
+
+class Solution:
+    # @return a string
+    def getPermutation(self, n, k):
+        nums = []
+        # There would be n! permutations total.
+        factorial = [1] * (n+1)
+        nums = range(1, n+1) # Create a list [1, n+1]
+        for i in xrange(1, n+1):
+            factorial[i] = factorial[i-1] * i
+
+        result = ""
+        k -= 1
+        for i in xrange(n, 0, -1):
+            j = k / factorial[i-1]
+            k = k % factorial[i-1]
+            result += str(nums.pop(j))
+
+        return result
+
 

@@ -283,4 +283,73 @@ def longestpalindromic(a):
                     start = i
                     maxLength = k
     return a[start : start + k]
+"""
+9. Given a string s and a dictionary of words dict, determine if s can be segmented into
+a space-separated sequence of one or more dictionary words.
+
+For example, given
+s = "leetcode",
+dict = ["leet", "code"].
+
+Return true because "leetcode" can be segmented as "leet code".
+"""
+def wordBreak(self, s, wordDict):
+    if not wordDict or not s:
+        return False
+    dp = [False] * (len(s) +1)
+    dp[0] = True
+
+    for i in xrange(1, len(s)+1):
+        for k in xrange(i):
+            if dp[k] and s[k:i] in wordDict:
+                dp[i] = True
+    return dp[len(s)]
+
+"""
+10. Jump game I.
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+
+Each element in the array represents your maximum jump length at that position.
+
+Determine if you are able to reach the last index.
+
+For example:
+A = [2,3,1,1,4], return true.
+
+A = [3,2,1,0,4], return false.
+"""
+# Notice that in index i, the range that could jump to is [i:i + nums[i]]
+def canJump(self, nums):
+    maxindex = 0
+    for i in xrange(len(nums)):
+        if i > maxindex:
+            return False
+        elif maxindex >= len(nums) - 1:
+            return True
+        else:
+            maxindex = max(maxindex, i + nums[i])
+
+"""
+11. Jump game II.
+reach the last index in the minimum number of jumps.
+
+For example:
+Given array A = [2,3,1,1,4]
+
+The minimum number of jumps to reach the last index is 2. (Jump 1 step from index 0 to 1, then 3 steps to the last index.)
+"""
+# NOTE instead of tracking the length it can jump, track the times of jump that will
+# reach to the last index
+def jump(self, nums):
+    cur_length = 0
+    njump = 0
+    i = 0
+    while cur_length < len(nums) -1:
+        last_length = cur_length
+        for i in xrange(i, last_length+1):
+            cur_length = max(cur_length, i + nums[i])
+        njump += 1
+        if cur_length == last_length:
+            return -1
+    return njump
 
