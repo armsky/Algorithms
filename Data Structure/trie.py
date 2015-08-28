@@ -17,7 +17,7 @@ class Trie:
             node = self.root
             for char in word:
                 child = node.children.get(char)
-                if child is None:
+                if not child:
                     child = TrieNode()
                     node.children[char] = child
                 node = child

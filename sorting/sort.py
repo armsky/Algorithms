@@ -1,4 +1,5 @@
-# O(n^2), insert first element in unsorted part to the right place of sorted place. Stable, adaptive, and low overhead.
+# O(n^2), insert first element in unsorted part to the right place of sorted place.
+# Stable, adaptive, and low overhead.
 # Time: O(n), O(n^2), O(n^2)
 # Space: O(1)
 """

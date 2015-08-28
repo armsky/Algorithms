@@ -49,7 +49,7 @@ Given an array of stock share price, each day, you can either buy one share,
 sell any number of shares or not make any transaction. What is the maximum
 profit you can get.
 """
-#NOTE: Stock trade is easy if time goes backwards!
+# NOTE: Stock trade is easy if time goes backwards!
 # Find highest price backwards in time
 def max_profit(a):
     profit = 0
@@ -239,7 +239,7 @@ If not (0/1): can choose items multiple times
 # 2.
 
 """
-7. Pots of godd game
+7. Pots of gold game
 A list of pots with gold coins, you can pick the first pot or the last one.
 If you starts the game, opponent can also play optimal, how do you win
 """
@@ -333,8 +333,7 @@ def canJump(self, nums):
 11. Jump game II.
 reach the last index in the minimum number of jumps.
 
-For example:
-Given array A = [2,3,1,1,4]
+For example: A = [2,3,1,1,4]
 
 The minimum number of jumps to reach the last index is 2. (Jump 1 step from index 0 to 1, then 3 steps to the last index.)
 """

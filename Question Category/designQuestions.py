@@ -68,10 +68,6 @@ class SingletonClass(object):
 """
 
 """
-5. How to construct web Server
-"""
-
-"""
 6. Design an effective data structure for a phone book, which allows searching by name and also searching by number.
 (Similiar to design a auto-complete function)
 """
@@ -93,7 +89,7 @@ class SingletonClass(object):
 9. how to design a web server that monitors the usage of backend servers and
 display results
 """
-
+# The primary function of a web server is to store, process and deliver web pages to clients.
 """
 10. Design a Poker Cards class
 """

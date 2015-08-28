@@ -1,5 +1,5 @@
 """
-1. Find pead element.
+1. Find peak element.
 A peak element is an element that is greater than its neighbors.
 Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
 The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.
@@ -34,6 +34,7 @@ def threeSumClosest(self, nums, target):
     if len(nums) < 3:
         return None
     diff = nums[0]+ nums[1]+ nums[2] - target
+    # Must sort it!
     nums.sort()
     # Be careful for the bound here, must make sure the subarray has at least 2 elements
     for i in xrange(len(nums)-2):
@@ -116,7 +117,7 @@ Note:
 The solution is guaranteed to be unique.
 """
 # A real good solution
-# If i is solution for station[0..n], there must not exist a k that sum[k:i-1] > 0
+# If i is solution for station[0..n], there must not exist a k that sum[k:i-1] >= 0
 # otherwist the solution should be k. so sum[k:i-1] < 0
 # Which also means, sum[i:n] must > 0
 # Then the problem becomes: find the last k make sum[k:i-1] < 0, so [i:n] is the longest subarray
@@ -140,9 +141,6 @@ def canCompleteCircuit(self, gas, cost):
 Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
 
 Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
-
-Note:
-You are not suppose to use the library's sort function for this problem.
 
 Follow up:
 A rather straight forward solution is a two-pass algorithm using counting sort.
@@ -232,7 +230,7 @@ def majorityElement2(self, nums):
     return [n for n in (can1, can2) if n is not None and nums.count(n) > size/3]
 """
 Given a sorted array of integers, find the starting and ending position of a given target value.
-Your algorithm's must beO(log n). If not found, return [-1, -1].
+Your algorithm's must be O(log n). If not found, return [-1, -1].
 
 For example,
 Given [5, 7, 7, 8, 8, 10] and target value 8,
