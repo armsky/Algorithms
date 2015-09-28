@@ -229,6 +229,7 @@ def majorityElement2(self, nums):
     size = len(nums)
     return [n for n in (can1, can2) if n is not None and nums.count(n) > size/3]
 """
+8.
 Given a sorted array of integers, find the starting and ending position of a given target value.
 Your algorithm's must be O(log n). If not found, return [-1, -1].
 
@@ -261,3 +262,76 @@ return [3, 4].
         if ll <= rr:
             return [ll, rr]
         return res
+
+"""
+9. Longest substring without repeating character
+
+Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b", with the length of 1.
+"""
+def lengthOfLongestSubstring(self, s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    if not s:
+        return 0
+    re = s[0]
+    m = 1
+    for i in xrange(1, len(s)):
+        if s[i] not in re and s[i] != re[-1]:
+            re += s[i]
+        else:
+            j = re.index(s[i])
+            re = re[j+1:] + s[i]
+        if len(re) > m:
+            m = len(re)
+    return m
+
+"""
+10. Max Product Subarray
+Find the contiguous subarray within an array (containing at least one number) which has the largest product.
+
+For example, given the array [2,3,-2,4],
+the contiguous subarray [2,3] has the largest product = 6.
+"""
+    # need to track the current max and min, since two negetive products a positive.
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return None
+        cur_max, cur_min, ans = nums[0], nums[0], nums[0]
+
+        for i in xrange(1, len(nums)):
+            temp = cur_max
+            cur_max = max(max(cur_max * nums[i], cur_min * nums[i]), nums[i])
+            cur_min = min(min(temp * nums[i], cur_min * nums[i]), nums[i])
+            ans = max(ans, cur_max)
+        return ans
+
+"""
+11. Max Subarray.
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [−2,1,−3,4,−1,2,1,−5,4],
+the contiguous subarray [4,−1,2,1] has the largest sum = 6.
+"""
+def maxSubArray(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    sum = [nums[0] if nums[0] > 0 else 0]
+    all_negetive = True
+    for i in xrange(1, len(nums)):
+        if nums[i] > 0:
+            all_negetive = False
+        if nums[i] + sum[i-1] > 0:
+            sum.append(nums[i] + sum[i-1])
+        else:
+            sum.append(0)
+    if all_negetive:
+        return max(nums)
+    return max(sum)

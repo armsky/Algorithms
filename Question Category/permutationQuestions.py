@@ -103,4 +103,98 @@ class Solution:
 
         return result
 
+"""
+4. Letter combinations of Phone numbers
+Given a digit string, return all possible letter combinations that the number could represent.
+
+A mapping of digit to letters (just like on the telephone buttons) is given below.
+
+Input:Digit string "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+Note:
+Although the above answer is in lexicographical order, your answer could be in any order you want.
+"""
+def letterCombinations(self, digits):
+    """
+    :type digits: str
+    :rtype: List[str]
+    """
+    if not digits:
+        return []
+
+    def generate(deep, temp, result, digits, board):
+        if deep == len(digits):
+            result.append(temp)
+            return
+        digit = digits[deep]
+        for char in board[digit]:
+            generate(deep+1, temp+char, result, digits, board)
+
+    result = []
+    temp = ""
+    deep = 0
+    board = {
+        "2": "abc",
+        "3": "def",
+        "4": "ghi",
+        "5": "jkl",
+        "6": "mno",
+        "7": "pqrs",
+        "8": "tuv",
+        "9": "wxyz",
+        }
+    generate(0, temp, result, digits, board)
+    return result
+
+"""
+5. Generate parentheses
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+"((()))", "(()())", "(())()", "()(())", "()()()"
+"""
+# Initial solution, will have TLE
+def generateParenthesis(self, n):
+    def insert(n, temp, re):
+        if n == 0:
+            if temp not in re:
+                re.append(temp)
+            return
+        insert(n-1, "()"+temp, re)
+        insert(n-1, temp+"()", re)
+        for i in xrange(len(temp)):
+            if temp[i] == "(":
+                insert(n-1, temp[0:i+1]+"()"+temp[i+1:], re)
+        return
+
+    re = []
+    if n >= 1:
+        insert(n-1, "()", re)
+        return re
+    else:
+        return [""]
+
+# A better solution
+def generateParenthesis(self, n):
+    def insert(temp, left, right, re):
+        # Handle ")("
+        if left > right:
+            return
+        if left == 0 and right == 0:
+            re.append(temp)
+            return re
+        if left > 0:
+            insert(temp+"(", left-1, right, re)
+        if right > 0:
+            insert(temp+")", left, right-1, re)
+
+
+    re = []
+    if n >= 1:
+        insert("", n, n, re)
+        return re
+    else:
+        return [""]
+
 
