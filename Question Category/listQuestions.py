@@ -12,7 +12,7 @@
 # traverse the longer one d = m-n, and then traverse both in parallel
 # O(m+n) time, O(1) space
 
-# IV. Make cirvle in first list.
+# IV. Make circle in first list.
 # Use two pointers to find loop in second list, remove the circle
 # O(m+n) time, O(1) space
 
