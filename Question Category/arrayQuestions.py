@@ -106,7 +106,7 @@ def reverse(a, l, r):
 
 def rotate(a, d):
    reverse(a, 0, d-1)
-   reverse(a, d, n-1)
+   reverse(a, n-d, n-1)
    reverse(a, 0, n-1)
 
 """

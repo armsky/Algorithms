@@ -72,3 +72,21 @@ def numSquares(self, n):
         a += 1
     return 3
 
+"""
+3. Use rand5() to get rand7()
+"""
+# suppose rand5() will return 0~4, so rand7() returns 0~6
+def rand2():
+    x = rand5()
+    if x == 4:
+        return rand2()
+    else:
+        return x % 2
+
+def rand7():
+    x = 4 * rand2() + 2 * rand2() + 1 *rand2()
+    if x == 7:
+        return rand7()
+    else:
+        return x
+

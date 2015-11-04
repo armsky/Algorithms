@@ -266,3 +266,28 @@ def connect(self, root):
             cur = cur.next
 
         pre = pre.left
+
+"""
+6. Invert Binary Tree
+Invert a binary tree.
+
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+to
+     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1
+"""
+def invertTree(self, root):
+    if root:
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        return root
+    else:
+        return None

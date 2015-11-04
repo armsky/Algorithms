@@ -379,7 +379,7 @@ def is_subtree(root, target):
 def are_indentical(node1, node2):
     if node1 is None and node2 is None:
         return True
-    if ndoes is None or node2 is None:
+    if node1 is None or node2 is None:
         return False
     return node1.data == node2.data and
             self.are_identical(node1.left, node2.left) and
