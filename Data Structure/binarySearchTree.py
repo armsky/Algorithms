@@ -190,19 +190,25 @@ class BST:
 
     def levelorder_iterative(self, root, visitor = printwithspace):
         # Use two queues to store current level's nodes and next level's nodes
-        if node is not None:
-            cq = Queue.Queue()
-            nq = Queue.Queue()
-            cq.put(node)
-            while cq is not None:
-                node = cq.get()
-                if node is not None:
-                    self.visitor(node.data)
-                    nq.put(node.left)
-                    nq.put(node.right)
-                if cq is None:
-                    cq, nq = nq, cq
+        if not root:
+            return []
 
+        import Queue
+        q1 = Queue.Queue()
+        q1.put(root)
+        q2 = Queue.Queue()
+        re = []
+        temp = []
+        while not q1.empty():
+            node = q1.get()
+            temp.append(node.val)
+            if node.left is not None: q2.put(node.left)
+            if node.right is not None: q2.put(node.right)
+            if q1.empty():
+                re.append(temp)
+                temp = []
+                q1, q2 = q2, q1
+        return re
 """
 The traversal above all use recursive or stack (O(n) space used)
 Morris will only need O(1) space and O(n) time, (Each edge is traversed

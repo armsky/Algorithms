@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.hackerrank.com/tests/fbqn8fsoklg/questions/6rkl422g -->
+<html lang="en" class=" mod_js mod_flexbox mod_flexboxlegacy mod_canvas mod_canvastext mod_webgl mod_no-touch mod_geolocation mod_history mod_draganddrop mod_rgba mod_hsla mod_multiplebgs mod_backgroundsize mod_borderimage mod_borderradius mod_boxshadow mod_textshadow mod_opacity mod_cssanimations mod_csscolumns mod_cssgradients mod_cssreflections mod_csstransforms mod_csstransforms3d mod_csstransitions mod_fontface mod_generatedcontent mod_video mod_audio mod_applicationcache mod_svg mod_inlinesvg mod_smil mod_svgclippaths mod_csscalc mod_fullscreen mod_cssresize mod_no-ie8compat"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <script type="text/javascript" src="./Two Sigma Code Test 1_files/46ce49ae81"></script><script type="text/javascript" async="" src="./Two Sigma Code Test 1_files/ga.js"></script><script src="./Two Sigma Code Test 1_files/52ef30ed5bd3fbb640000383.js" async=""></script><script src="./Two Sigma Code Test 1_files/nr-768.min.js"></script><script type="text/javascript" async="" src="./Two Sigma Code Test 1_files/heap-547804831.js"></script><script type="text/javascript">
+        var CKEDITOR_BASEPATH = "/assets/ckeditor/";
+        var HR;
+        HR = window.HR || {};
+        HR.PREFETCH_DATA = {"metadata":{"asset_path":"https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets","filepicker_key":"ApehXMbvXTWqWab7OmMr9z"}};
+                HR.MANIFEST_HASH = "24668edfad1f0e2c29cf7e26237321ef22d426a7";
+    </script>
+
+    <script type="text/javascript">
+        function set_manifest(manifest) {
+            HR.MANIFEST = manifest;
+        }
+    </script>
+
+    <!-- jsCookies -->
+<script type="text/javascript">
+  if("undefined"==typeof jsCookies)var jsCookies={get:function(c_name){if(document.cookie.length>0){var c_start=document.cookie.indexOf(c_name+"=");if(-1!=c_start){c_start=c_start+c_name.length+1;var c_end=document.cookie.indexOf(";",c_start);return-1==c_end&&(c_end=document.cookie.length),unescape(document.cookie.substring(c_start,c_end))}}return""},set:function(c_name,value,expiredays,expirehours,expiremins,expiresecs){var exdate=new Date;exdate.setDate(exdate.getDate()+(expiredays||0)),exdate.setHours(exdate.getHours()+(expirehours||0)),exdate.setMinutes(exdate.getMinutes()+(expiremins||0)),exdate.setSeconds(exdate.getSeconds()+(expiresecs||0));var set_expire_time=!(null==expiredays&&null==expiresecs&&null==expiremins&&null==expirehours);document.cookie=c_name+"="+escape(value)+"; path=/"+(0==set_expire_time?"":"; expires="+exdate.toUTCString())},check:function(c_name){return c_name=jsCookies.get(c_name),null!=c_name&&""!=c_name?!0:!1}};
+</script>
+
+<script type="text/javascript">
+  !function(){function getRandRange(min,max){return parseInt(Math.random()*(max-min))+min}function getRandChar(){var offset=getRandRange(0,35);return offset>25?(offset-26).toString():String.fromCharCode(97+offset)}function makeId(length){for(var text="",i=0;length>i;i++)text+=getRandChar();return text}function setSessionId(){key="session_id";var session_key=jsCookies.get(key);session_key?jsCookies.set(key,session_key,null,2):(epoch=(new Date).getTime(),rand_id=makeId(8),jsCookies.set(key,rand_id+"-"+epoch.toString(),null,2)),setTimeout(setSessionId,6e4)}setSessionId()}();
+</script>
+
+<!-- CDN Failsafe -->
+<script type="text/javascript">!function(window){function sendRequest(url,callback,postData,error_callback){var req=createXMLHTTPObject();req&&(req.open("GET",url,!0),req.onreadystatechange=function(){return 4==req.readyState?200!=req.status&&304!=req.status?(error_callback(req),void 0):(callback(req),void 0):void 0},4!=req.readyState&&req.send(postData))}function createXMLHTTPObject(){for(var xmlhttp=!1,i=0;i<XMLHttpFactories.length;i++){try{xmlhttp=XMLHttpFactories[i]()}catch(e){continue}break}return xmlhttp}function set_CDN_URL(url){jsCookies.get("cdn_url")||("d3keuzeb2crhkn.cloudfront.net"!=url?cookieTimer=setTimeout(function(){jsCookies.set("cdn_url",url,0,1),window.document.location.reload()},250):(cookieTimer&&(clearTimeout(cookieTimer),cookieTimer=null),jsCookies.set("cdn_url",url,0,1)))}function CDNBench(url){this.url=url,this.rateCDN=function(){var url=this.url,timestamp=(new Date).getTime(),success_callback=function(){set_CDN_URL(url),console.log("timetaken for "+url+" is "+((new Date).getTime()-timestamp)+" milliseconds")},error_callback=function(){console.log("unable to reach "+url)};sendRequest("https://"+url+"/lib/checkcdn.json?_="+Math.floor(Math.random()*Math.pow(10,15)),success_callback,null,error_callback)}}function rate_cdn(){for(var cdn_urls=["hrcdn.net","d3keuzeb2crhkn.cloudfront.net"],i=0;i<cdn_urls.length;i++)new CDNBench(cdn_urls[i]).rateCDN()}var XMLHttpFactories=[function(){return new XMLHttpRequest},function(){return new ActiveXObject("Msxml2.XMLHTTP")},function(){return new ActiveXObject("Msxml3.XMLHTTP")},function(){return new ActiveXObject("Microsoft.XMLHTTP")}];jsCookies=window.jsCookies;var cookieTimer=null;jsCookies.get("cdn_url")||rate_cdn()}(window);</script>
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="https://hrcdn.net/">
+<link rel="dns-prefetch" href="https://d3keuzeb2crhkn.cloudfront.net/">
+<link rel="dns-prefetch" href="https://notifications.hackerrank.com/">
+<link rel="dns-prefetch" href="https://api.mixpanel.com/">
+<link rel="dns-prefetch" href="https://heapanalytics.com/">
+
+<!-- use the latest IE browser -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+<!-- App Icon for iOS Devices -->
+<link rel="apple-touch-icon-precomposed" href="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/apple-touch-icon-precomposed-5304de662052c6547f2c29f185016702.png">
+
+<!-- favicon -->
+<link href="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/favicon-13e86bc31933fb0accdbd817adbc12c0.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+
+<!-- generating meta tags -->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"46ce49ae81","applicationID":"1292558","transactionName":"c1ddEBFcWl1WQRpeWF1dHA0NV1NJ","queueTime":0,"applicationTime":40,"agent":"js-agent.newrelic.com/nr-768.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):void(r.q&&(r.q[e]||(r.q[e]=[]),r.q[e].push(n)))}var r=e("ee").create();n.exports=t,t.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=window,f=u.document;e(2);var s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
+<meta charset="utf-8">
+<meta name="description" content="Programming problems and contests in different domains of Computer Science. Solve interesting and challenging programming problems">
+<meta property="og:title" content="HackerRank">
+<meta property="og:image" content="https://hrcdn.net/hackerrank/assets/hackerrank_default_og.jpg">
+<meta property="og:description" content="Where hackers hangout to solve interesting Computer Science challenges">
+<meta property="og:url" content="https://www.hackerrank.com/tests/fbqn8fsoklg/login">
+<meta property="og:site_name" content="HackerRank">
+<meta property="og:type" content="website">
+<meta property="article:author" content="https://www.facebook.com/hackerrank">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hackerrank">
+<meta name="twitter:url" content="https://www.hackerrank.com">
+<meta name="twitter:title" content="Programming problems and Competitions :: HackerRank">
+<meta property="fb:app_id" content="347499128655783">
+
+<!-- ends meta tags generation -->
+
+<!-- CSRF Token -->
+<meta content="authenticity_token" name="csrf-param">
+<meta content="6dWSNf/aYlwzvXYq7IE5IxfK9YBEptwMxyVo0BZwkWk=" name="csrf-token">
+
+<!-- Typography -->
+<style>.file-input-wrapper { overflow: hidden; position: relative; cursor: pointer; z-index: 1; }.file-input-wrapper input[type=file], .file-input-wrapper input[type=file]:focus, .file-input-wrapper input[type=file]:hover { position: absolute; top: 0; left: 0; cursor: pointer; opacity: 0; filter: alpha(opacity=0); z-index: 99; outline: 0; }.file-input-name { margin-left: 8px; }</style><style>.file-input-wrapper { overflow: hidden; position: relative; cursor: pointer; z-index: 1; }.file-input-wrapper input[type=file], .file-input-wrapper input[type=file]:focus, .file-input-wrapper input[type=file]:hover { position: absolute; top: 0; left: 0; cursor: pointer; opacity: 0; filter: alpha(opacity=0); z-index: 99; outline: 0; }.file-input-name { margin-left: 8px; }</style><link rel="stylesheet" id="js-hr-typography" type="text/css" href="./Two Sigma Code Test 1_files/18B4787628E33E7CA.css" data-noprefix="">
+  <link href="./Two Sigma Code Test 1_files/candidate_libraries-9bfec883c7f199de0fc8973b728884ed.css" media="all" rel="stylesheet">
+  <link href="./Two Sigma Code Test 1_files/candidate-core-7bb72461de7c19f97950638385a8eeec.css" media="all" rel="stylesheet">
+  <link href="./Two Sigma Code Test 1_files/candidate-ce6d444ebf1a17667141984959b26e67.css" media="all" rel="stylesheet">
+  <link href="./Two Sigma Code Test 1_files/codeshell_libraries-80ba31659e492d3ed55df3dc2bf662a1.css" media="all" rel="stylesheet">
+
+<!-- Google Analyitics Init -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', "UA-45092266-1"]);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_setCampSourceKey', 'utm_source']);
+    _gaq.push(['_setCampMediumKey', 'utm_medium']);
+    _gaq.push(['_setCampContentKey', 'utm_keyword']);
+    _gaq.push(['_setCampTermKey', 'utm_keyword']);
+    _gaq.push(['_setCampNameKey', 'utm_campaign']);
+</script>
+
+<!-- Totango init -->
+<script>
+    totango = null;
+</script>
+
+<!-- Mixpanel Init -->
+<script type="text/javascript">
+    var mixpanel = mixpanel || [];
+</script>
+
+<!-- Heap Analytics Init -->
+<script type="text/javascript">
+    var heap = heap || [];
+</script>
+
+<!-- bizible -->
+<script type="text/javascript">
+  var hr_metrics = hr_metrics || {track: function(){}, externalService: function(){}};
+</script>
+
+<script type="text/javascript">
+    /**
+     * Protect window.console method calls, e.g. console is not defined on IE
+     * unless dev tools are open, and IE doesn't define console.debug
+     */
+(function() {
+    if (!window.console) {
+      window.console = {};
+    }
+    var m = ["log", "info", "warn", "error", "debug", "trace", "dir", "group", "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd", "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"];
+    // define undefined methods as noops to prevent errors
+    for (var i = 0; i < m.length; i++) {
+        if (!window.console[m[i]]) {
+            window.console[m[i]] = function() {};
+        }
+    }
+})();
+</script>
+
+
+<!-- Errorception -->
+
+    <script type="text/javascript">
+    (function(_,e,rr,s){_errs=[s];var c=_.onerror;_.onerror=function(){var a=arguments;_errs.push(a);
+     c&&c.apply(this,a)};var b=function(){var c=e.createElement(rr),b=e.getElementsByTagName(rr)[0];
+     c.src="//beacon.errorception.com/"+s+".js";c.async=!0;b.parentNode.insertBefore(c,b)};
+     _.addEventListener?_.addEventListener("load",b,!1):_.attachEvent("onload",b)})
+     (window,document,"script","52ef30ed5bd3fbb640000383");
+
+     _errs.meta = {
+         loadTimestamp: 1447635714,
+         assetUrl: 'https://d3keuzeb2crhkn.cloudfront.net',
+         cdnUrl: 'd3keuzeb2crhkn.cloudfront.net'
+     };
+     _errs.allow = function (err) {
+         if (err.message.indexOf("CustomPhantomJsError") !== -1){
+            return false;
+         }
+
+         if (err.message === "Uncaught TypeError: Cannot read property 'frames' of undefined" &&
+             err.line === 206 &&
+             err.stack &&
+             err.stack.indexOf("TeXTheWorld") !== -1) {
+                 return false;
+         }
+         return true;
+     }
+     </script>
+
+
+
+
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/compound/recruit-candidate-5e3d5813153c9c92fbfcd355cc42fa72.js" src="./Two Sigma Code Test 1_files/recruit-candidate-5e3d5813153c9c92fbfcd355cc42fa72.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/awaitingserver-177c4ad4d9c238fcb12a98e227c5b3a6.js" src="./Two Sigma Code Test 1_files/awaitingserver-177c4ad4d9c238fcb12a98e227c5b3a6.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/candidate-details-5dce0548ff751cc0b03cdba837ef1865.js" src="./Two Sigma Code Test 1_files/candidate-details-5dce0548ff751cc0b03cdba837ef1865.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/feedback-done-f6e0fc933c5d39797c1cf5e8ebd2e704.js" src="./Two Sigma Code Test 1_files/feedback-done-f6e0fc933c5d39797c1cf5e8ebd2e704.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/candidatemessage-705566be784052484bb465804dbbcfae.js" src="./Two Sigma Code Test 1_files/candidatemessage-705566be784052484bb465804dbbcfae.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/compiletest-base-7103a9d28f6d2f823c45505c0e72ede1.js" src="./Two Sigma Code Test 1_files/compiletest-base-7103a9d28f6d2f823c45505c0e72ede1.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/candidatemismatch-7e23e016c40940fa1f59ccc1b05bb628.js" src="./Two Sigma Code Test 1_files/candidatemismatch-7e23e016c40940fa1f59ccc1b05bb628.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/candidate-login-2eb40a28f3600b2437d1bc1c61de17d8.js" src="./Two Sigma Code Test 1_files/candidate-login-2eb40a28f3600b2437d1bc1c61de17d8.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-correcterrors-d27c7635195538db18528935d0a73340.js" src="./Two Sigma Code Test 1_files/question-correcterrors-d27c7635195538db18528935d0a73340.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/footer-1b648361ee36440589d2c250e632a5a0.js" src="./Two Sigma Code Test 1_files/footer-1b648361ee36440589d2c250e632a5a0.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/instructions-1f18e1c3cc54bf37171c04adb4e8c535.js" src="./Two Sigma Code Test 1_files/instructions-1f18e1c3cc54bf37171c04adb4e8c535.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-base-71cf88e970981c5021766b8e60df93f5.js" src="./Two Sigma Code Test 1_files/question-base-71cf88e970981c5021766b8e60df93f5.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/instructiontabs-18b021b44ca0479aab1884cac55f9ba8.js" src="./Two Sigma Code Test 1_files/instructiontabs-18b021b44ca0479aab1884cac55f9ba8.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-style-7ec2f3c43de995514deedb50cede2354.js" src="./Two Sigma Code Test 1_files/question-style-7ec2f3c43de995514deedb50cede2354.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/hackerrank-login-29a838ea947a97eb57decb32df6f60b5.js" src="./Two Sigma Code Test 1_files/hackerrank-login-29a838ea947a97eb57decb32df6f60b5.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-design-ed56782321c17b3d854b317029155d29.js" src="./Two Sigma Code Test 1_files/question-design-ed56782321c17b3d854b317029155d29.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-fileupload-fb32a344468ba29a80295a91415c8463.js" src="./Two Sigma Code Test 1_files/question-fileupload-fb32a344468ba29a80295a91415c8463.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-mcq-98b0b99e2564c4f654b11a12764b769d.js" src="./Two Sigma Code Test 1_files/question-mcq-98b0b99e2564c4f654b11a12764b769d.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-list-1c7306043befc0abe99d4e5ded3e1d06.js" src="./Two Sigma Code Test 1_files/question-list-1c7306043befc0abe99d4e5ded3e1d06.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-diagram-622e4302d6acc7822988e7a08ec8b641.js" src="./Two Sigma Code Test 1_files/question-diagram-622e4302d6acc7822988e7a08ec8b641.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-subjective-4a95d2fd9352225fe0c29afd37b68f53.js" src="./Two Sigma Code Test 1_files/question-subjective-4a95d2fd9352225fe0c29afd37b68f53.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/sudorank-b1ac8d40b2548dc158d6510bc03ebea3.js" src="./Two Sigma Code Test 1_files/sudorank-b1ac8d40b2548dc158d6510bc03ebea3.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/sudorankinfo-f94cc905fe0aed7fc3c33c841b9d0dca.js" src="./Two Sigma Code Test 1_files/sudorankinfo-f94cc905fe0aed7fc3c33c841b9d0dca.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/topbar-1623bb7cd3ddd6a8846147d3e808420c.js" src="./Two Sigma Code Test 1_files/topbar-1623bb7cd3ddd6a8846147d3e808420c.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/sidebar-94ce20fe7f7338134b68cb393a7d363b.js" src="./Two Sigma Code Test 1_files/sidebar-94ce20fe7f7338134b68cb393a7d363b.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/fbresume-8f605e59739c3db7af2f25c77449bc9a.js" src="./Two Sigma Code Test 1_files/fbresume-8f605e59739c3db7af2f25c77449bc9a.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-completesentence-60e59ca8813ddb7bc7d1b073707fceeb.js" src="./Two Sigma Code Test 1_files/question-completesentence-60e59ca8813ddb7bc7d1b073707fceeb.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-servertask-cd6f9c968f6ff5b25ebf489d57793b66.js" src="./Two Sigma Code Test 1_files/question-servertask-cd6f9c968f6ff5b25ebf489d57793b66.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/compiletest-testcase-b633c429fe6f740ae5e6af6fa2ca1662.js" src="./Two Sigma Code Test 1_files/compiletest-testcase-b633c429fe6f740ae5e6af6fa2ca1662.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-coding-b9b7cc154c0c53f4fd53b9a2c53ea4e4.js" src="./Two Sigma Code Test 1_files/question-coding-b9b7cc154c0c53f4fd53b9a2c53ea4e4.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-project-93c819c79e315a3a23d97a4a8660bad7.js" src="./Two Sigma Code Test 1_files/question-project-93c819c79e315a3a23d97a4a8660bad7.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/backbone/templates/recruit/question-coding-codeshellx-db8a65562fdcc0b4595ecc0def220194.js" src="./Two Sigma Code Test 1_files/question-coding-codeshellx-db8a65562fdcc0b4595ecc0def220194.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror_basic-d443da2fe13ea00d6446973756c4364e.js" src="./Two Sigma Code Test 1_files/codemirror_basic-d443da2fe13ea00d6446973756c4364e.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/clike/clike-33fa7bfa1edcb19dd02f136f4e9d6144.js" src="./Two Sigma Code Test 1_files/clike-33fa7bfa1edcb19dd02f136f4e9d6144.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/php/php-e40a510e3cad8ae15da5abb51c38f692.js" src="./Two Sigma Code Test 1_files/php-e40a510e3cad8ae15da5abb51c38f692.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/python/python-e75b2c6719833405db3062ca7317b797.js" src="./Two Sigma Code Test 1_files/python-e75b2c6719833405db3062ca7317b797.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/ruby/ruby-6c68b5797a8c9e0cb42a8f87df4576ef.js" src="./Two Sigma Code Test 1_files/ruby-6c68b5797a8c9e0cb42a8f87df4576ef.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/javascript/javascript-0e2e30ac65f7a90f8635593f9fb5e8a5.js" src="./Two Sigma Code Test 1_files/javascript-0e2e30ac65f7a90f8635593f9fb5e8a5.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/perl/perl-62203d054c72dfb65c37941325af1824.js" src="./Two Sigma Code Test 1_files/perl-62203d054c72dfb65c37941325af1824.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/h askell/h askell.js" src="./Two Sigma Code Test 1_files/h askell.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/clojure/clojure-6741d930ad54e04844a9f70066c495c2.js" src="./Two Sigma Code Test 1_files/clojure-6741d930ad54e04844a9f70066c495c2.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/go/go-577d75cc687bba0a0b598a43a7e25a5d.js" src="./Two Sigma Code Test 1_files/go-577d75cc687bba0a0b598a43a7e25a5d.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/erlang/erlang-646f33903183bd0e3cb4c5805f210abf.js" src="./Two Sigma Code Test 1_files/erlang-646f33903183bd0e3cb4c5805f210abf.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/groovy/groovy-e5d8ee93e956af0bb4f0ee92ca8c002d.js" src="./Two Sigma Code Test 1_files/groovy-e5d8ee93e956af0bb4f0ee92ca8c002d.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/sql/sql-0c6facb214d4548f109a65d51fedca00.js" src="./Two Sigma Code Test 1_files/sql-0c6facb214d4548f109a65d51fedca00.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/cobol/cobol-889ca32abb704db0541e75ca6c63c864.js" src="./Two Sigma Code Test 1_files/cobol-889ca32abb704db0541e75ca6c63c864.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/visualbasi c/visualbasi c.js" src="./Two Sigma Code Test 1_files/visualbasi c.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/r/r-84874e6b334f58d972d8dac345856ef7.js" src="./Two Sigma Code Test 1_files/r-84874e6b334f58d972d8dac345856ef7.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="https://d3keuzeb2crhkn.cloudfront.net//hackerrank//assets/codemirror/mode/octave/octave-f6bff4ab221e8ca6e4b544a11c432811.js" src="./Two Sigma Code Test 1_files/octave-f6bff4ab221e8ca6e4b544a11c432811.js"></script><!--<base href="https://www.hackerrank.com/tests/">--><base href=".">
+    <title>Two Sigma Code Test :: powered by HackerRank</title>
+
+    <!-- fragmenting for google bot -->
+    <meta name="fragment" content="!">
+<style type="text/css"></style></head>
+<body id="HackerRank-main">
+    <div style="" id="wrapper" class="no-header">
+        <div class="loading_box" style="display: none;">
+            <span>
+                <img alt="Hackerrank spinner 64x64" src="./Two Sigma Code Test 1_files/hackerrank_spinner_64x64-eecdb2ab11e291dd74a8f1843ab0425c.gif" style="display: none;">
+                <span class="recruitmsg">Loading..</span>
+            </span>
+        </div>
+        <div id="navigation"><div class="topbar"><header aria-label="Information about test in this banner" class="nav-make-fixed min-1024 page-header  hr_haslogo " id="page-header">
+    <div class="row-fluid">
+        
+        <span class="span6 nav-logo">
+            <a class="HackerRankLogo backbone company-logo-candidate-site" aria-hidden="true">
+                <img src="./Two Sigma Code Test 1_files/39907.jpg" alt="Hackerrank Logo" aria-hidden="true">
+            </a>
+            <span style="padding-left:50px;" class="text-ellipsis txt-white customer-font-color mlA" aria-level="2" aria-atomic="true" aria-label="Two Sigma Code Test">Two Sigma Code Test
+            
+            </span>
+        </span>
+        
+
+        <div class="span2 text-center" aria-level="2" aria-label="Time Left in Test:">
+            <div class="pmT pmB mmT mmB timerspan" aria-atomic="true"><i aria-hidden="true" class="icon-clock txt-alt-grey"></i>&nbsp;<span aria-atomic="true" class="txt-white customer-font-color fnt-sz-mid is-countdown" id="countdown-timer">02:17</span><br><span aria-hidden="true" class="timer-tag customer-font-color" id="timertag">to test end</span></div>
+        </div> <!-- .span3 -->
+        <div class="span1" aria-hidden="true">&nbsp;</div>
+
+        <div class="span4">
+            <div class="mlT txt-white customer-font-color fnt-sz-mid">
+                <div class="dark-theme-progress small" aria-hidden="true">
+                    <div class="base">
+                        <div class="cover progress-done" style="width: 100px;"></div>
+                    </div>
+                </div>
+                &nbsp;<span class="js-progress" aria-level="2" aria-label="Questions Attempted:"><span class="qdone">2</span>/<span class="qcount">2</span> Attempted</span>
+                    <span class="js-loader hidden"> <img src="./Two Sigma Code Test 1_files/hackerrank_spinner_64x64.gif" height="24" width="24"></span>
+            </div>
+        </div> <!-- .span4 -->
+
+        <div class="span3" aria-hidden="true">
+            <span class="text-ellipsis txt-white customer-font-color mlT"><i class="icon-user txt-alt-grey fnt-sz-mid"></i>&nbsp;armsky1988@gmail.com</span>
+        </div> <!-- .span2 -->
+
+    </div> <!-- .row-fluid -->
+</header>
+
+</div></div>
+        <div id="side-navigation"><div class="sbar"><div id="side-navigation">
+    <nav class="page_navigation-sidebar expand hr_slide-away-element ligter-sidebar hr-candidate-rules" id="sidebar" style="top: 70px;">
+        <div class="mini-dash" style="display:none">
+            <!--<footer class="clearfix">
+                <p class="pull-left rank"><i class="icon-up-dir-1 success"></i> 5572<span class="sub-label">Points</span></p>
+                <p class="pull-right rank"><i class="icon-up-dir-1 success"></i> 242<span class="sub-label">Rank</span></p>
+                -->
+        </div>
+        <ul class="unstyled sidebar_nav-list sidebar-differentiator margin-top-fix fixed-nav questions-indicator" aria-level="1" role="menubar"><a href="https://www.hackerrank.com/tests/fbqn8fsoklg/questions" aria-label="Display all questions" aria-level="2" class="backbone js-navlink"><li class=""><i class="nav-icon icon-list-bullet-large"></i></li></a><a href="https://www.hackerrank.com/tests/fbqn8fsoklg/instructions" aria-label="At any time during the test you can access our FAQ as well as other platform help on this tab." aria-level="2" class="backbone js-navlink">
+<li class="">
+    <i class="nav-icon icon-help-circled  js-instruction-link" data-placement="right" data-trigger="manual" aria-label="Instructions. At any time during the test you can access our FAQ as well as other platform help on this tab."></i>
+</li>
+</a></ul>
+
+        <div class="sidebar-scroll-list-container" aria-label="Questions">
+            <ul class="unstyled sidebar_nav-list psT questions-indicator questions-nav" role="menu" aria-level="2"><a class="" aria-label="Question 1 Currently Selected" aria-atomic="true">
+<li class="qnav-1 answered  active">
+      <span class="quest-number">1</span>
+</li>
+</a><a href="https://www.hackerrank.com/tests/fbqn8fsoklg/questions/52a75072ce480" class="js-navlink" aria-label="Question 2 " aria-atomic="true">
+<li class="qnav-2 answered  ">
+      <span class="quest-number">2</span>
+</li>
+</a></ul>
+        </div>
+    </nav>
+</div>
+</div></div>
+        <div id="content" style="height:100%"><div class="question-base"><textarea id="shouter" style="position: absolute !important; height: 25px; width: 25px;" aria-live="assertive" role="alert" aria-label="Notifications will appear here" tabindex="-1"></textarea>
+<div class="container" style="margin-top:63px; " role="main">
+  <div class="title-name-wrapper">
+    <h1 class="title pull-left qtitle" aria-label="Question Title">Friend Circles</h1>
+    <h4 class="bold pull-right qpoints"></h4>
+    <div class="clear"></div>
+  </div>
+  <div class="container--inner">
+    
+      <div class="challenge-text hrx-version ck_table-wrap"><p>There are <strong><em>N</em></strong> students in a class. Some of them are friends, while some are not. Their friendship is transitive in nature, i.e., if <strong><em>A</em></strong> is friend of&nbsp;<strong><em>B</em></strong> and <strong><em>B</em></strong> is friend of<em>&nbsp;<strong>C</strong></em>, then <strong><em>A</em></strong> is also friend of&nbsp;<strong><em>C</em></strong>. A friend circle is a group of students who are directly or indirectly friends.</p>
+
+<p>You have to complete a function <em>int friendCircles(char[][] friends)</em> which returns the number of friend circles in the class. Its argument, <em>friends,</em>&nbsp;is a <em>NxN</em> matrix&nbsp;which consists of characters 'Y' or 'N'. &nbsp;If <em>friends[i][j]</em> = 'Y', then <em>i<sup>th</sup></em> and <em>j<sup>th</sup></em> students are friends with each other, otherwise not. You have to return the total number of friend circles in the class.</p>
+
+<p>Note: The method signature will differ by language. For example, Java will have 'int friendCircles(String[] friends)' where "friends" is an array of strings, which can be viewed as a 2-dimensional array of characters.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>1 &lt;= <em>N</em> &lt;= 300.</li>
+	<li>Each element of matrix&nbsp;<em>friends </em>will be 'Y' or 'N'.</li>
+	<li>Number of rows and columns will be equal in <em>friends</em>.</li>
+	<li>friends[i][i] = 'Y', where <em>0 &lt;= i &lt; N.</em></li>
+	<li><em>friends[i][j] = friends[j][i]</em>, where <em>0 &lt;= i &lt; j &lt; N.</em><br>
+	&nbsp;</li>
+</ul>
+
+<p><strong>Input Format:</strong></p>
+
+<p>The function "<span style="font-family: &#39;Whitney SSm A&#39;, &#39;Whitney SSm B&#39;, verdana, &#39;Lucida Grande&#39;, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; line-height: 24px;"><em>friendCircles</em>" contains a 2d string array "<em>friends</em>" as its argument.</span></p>
+
+<p>&nbsp;</p>
+
+<p><strong>Output Format:</strong></p>
+
+<p>Return a single integer denoting number of different circles that are present in the class.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Sample </strong><span style="font-family:whitney ssm a,whitney ssm b,verdana,lucida grande,sans-serif; font-size:16px; font-style:normal; font-variant:normal; font-weight:600; line-height:24px">Input&nbsp;</span><strong>#00:</strong></p>
+
+<p>4<br>
+YYNN<br>
+YYYN<br>
+NYYN<br>
+NNNY<br>
+&nbsp;</p>
+
+<p><strong>Sample Output #00: </strong></p>
+
+<p>2<br>
+&nbsp;</p>
+
+<p><strong>Explanation #00: </strong></p>
+
+<p>There are two pairs of friends (0, 1) and (1, 2). So (0, 2) is also a pair of friends by transitivity. So first friend circle contains (0, 1, 2), and second friend circle contains only student 3.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Sample Input #01:</strong><br>
+5<br>
+YNNNN<br>
+NYNNN<br>
+NNYNN<br>
+NNNYN<br>
+NNNNY<br>
+&nbsp;</p>
+
+<p><strong>Sample Output #01:&nbsp;</strong></p>
+
+<p>5</p>
+
+<p><br>
+<strong>Explanation #01: </strong></p>
+
+<p>No student is friends with any other, so each friend circle will contain of only one student {0}, {1}, {2}, {3}, {4}.</p>
+</div>
+      <div class="clear"></div>
+      <div class="soft-divider mlB"></div>
+      
+        <div class="mlB">
+          <strong style="font-size:larger">YOUR ANSWER</strong>
+          <div class="pull-right mlB hidden js-pinheader"><a class="btn js-btnpin" data-pin="False" title="Pin/unpin the Run and Submit code buttons below"><i class="icon--single icon-pencil"></i> Pin code header/footer</a></div>
+        </div>
+      <div class="clear"></div>
+      
+      <div class="qcontent"><div class="question-coding">
+<div id="editor" class="codeshell mlT mlB"><div class="clearfix grey-header fixed-hand0 cap plL plR psT psB" style="position: relative;">
+  <div class="msT pull-left"><em id="status-text"></em></div>
+  
+  
+  <div class="pull-right">
+    <div class="inline large lines inverse pull-right msT msL">
+      
+      
+      <a class="hide" style="display:none;"></a>
+      <div style="position:relative; margin-left: 0px;">
+        <a class="cursor no-select" data-analytics="CodeShellShowPreferences" id="show-preferences"><i class="icon-cog icon--grey no-select"></i></a>
+        <div id="pref-pane" style="position: absolute;right: -0.5em;top: 2em;z-index: 9;background: #fff;border: 1px solid #ddd;border-radius: 5px;padding: 10px;  width: 16em; display: none;">
+          <div style="position: absolute;width: 0;right: 0.8em;height: 0;border-left: 7px solid transparent;border-right: 7px solid transparent;border-bottom: 7px solid #ddd;top: -0.4em;"></div>
+          
+          <label>Editor Mode</label>
+          <div class="btn-group msB no-select">
+            <a data-analytics="CodeShellEditorMode" data-attr1="Emacs" class="cursor emacs btn btn-white editor-mode-button no-select" data-editor="emacs">Emacs</a>
+            <a data-analytics="CodeShellEditorMode" data-attr1="Normal" class="cursor default btn btn-white editor-mode-button no-select disabled" data-editor="default">Normal</a>
+            <a data-analytics="CodeShellEditorMode" data-attr1="Vim" class="cursor vim btn btn-white editor-mode-button no-select" data-editor="vim">Vim</a>
+          </div>
+          
+          
+          <label>Tab Spaces</label>
+          <input id="tab-spaces" type="text" style="width: 4em;">
+          
+            <label for="auto-complete">
+              <input id="auto-complete" type="checkbox" checked="">
+              Auto Complete
+            </label>
+          
+        </div>
+      </div>
+    </div>
+    <div class="pull-right">
+      <div class="dummy-lang-container hide"></div>
+      <div class="select2-container" id="s2id_select-lang"><a href="javascript:void(0)" onclick="return false;" class="select2-choice" tabindex="-1">   <span>Python 2</span><abbr class="select2-search-choice-close"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" type="text" id="s2id_autogen12" tabindex="-1" aria-label="Type the language that you want to code in and press enter"><div class="select2-drop select2-display-none">   <div class="select2-search select2-search-hidden select2-offscreen">       <input type="text" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" class="select2-input" aria-label="Type the language that you want to code in and press enter">   </div>   <ul class="select2-results">   </ul></div></div><input type="hidden" id="select-lang" tabindex="-1" class="select2-offscreen" value="python" style="display: inline-block;">
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="hr_tour-code-solution movable-hand flex-row" style="display: flex;">
+  
+  <div class="code-checker">
+    <div id="notification-message" class="clearfix grey-header cap  hidden "> </div>
+    <div class="code-editors" style="max-height: 560px;">
+      
+      <div class="code-head not-allowed" style="display: block;">
+        
+        <textarea id="codeheadview" style="width: 100%; display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 43px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 38px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 38px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div style="width: 50px; height: 50px; overflow-x: scroll;"></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment">#!/bin/python</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">sys</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">os</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="height: 128px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+      </div> 
+       <div class="loading-mode" style="display: none;">Loading Editor... </div> 
+      <div class="code-body" style="display: block;">
+        
+       <textarea id="codeview" style="width: 100%; display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 43px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 38px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 38px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>28</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-comment"># Complete the function below.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">8</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">Queue</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">9</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">10</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">def</span>  <span class="cm-def">friendCircles</span>(<span class="cm-variable">friends</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">11</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">n</span> = <span class="cm-builtin">len</span>(<span class="cm-variable">friends</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">12</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">q</span> = <span class="cm-variable">Queue</span>.<span class="cm-variable">Queue</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">13</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">visited</span> = [<span class="cm-builtin">False</span>] <span class="cm-operator">*</span> <span class="cm-variable">n</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">14</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">circle</span> = <span class="cm-number">0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">15</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-operator">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">n</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">16</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  <span class="cm-keyword">if</span> <span class="cm-variable">visited</span>[<span class="cm-variable">i</span>] <span class="cm-operator">==</span> <span class="cm-builtin">False</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">17</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">q</span>.<span class="cm-variable">put</span>(<span class="cm-variable">i</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">18</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">visited</span>[<span class="cm-variable">i</span>] = <span class="cm-builtin">True</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">19</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-keyword">while</span> <span class="cm-variable">q</span>.<span class="cm-variable">qsize</span>() <span class="cm-operator">&gt;</span> <span class="cm-number">0</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">20</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">f</span> = <span class="cm-variable">q</span>.<span class="cm-variable">get</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">21</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-keyword">for</span> <span class="cm-variable">j</span> <span class="cm-operator">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">n</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">22</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-keyword">if</span> <span class="cm-variable">visited</span>[<span class="cm-variable">j</span>] <span class="cm-operator">==</span> <span class="cm-builtin">False</span> <span class="cm-operator">and</span> <span class="cm-variable">friends</span>[<span class="cm-variable">f</span>][<span class="cm-variable">j</span>] <span class="cm-operator">==</span> <span class="cm-string">'Y'</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">23</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">visited</span>[<span class="cm-variable">j</span>] = <span class="cm-builtin">True</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">24</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">q</span>.<span class="cm-variable">put</span>(<span class="cm-variable">j</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">25</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <span class="cm-variable">circle</span> += <span class="cm-number">1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">26</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-keyword">return</span> <span class="cm-variable">circle</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">27</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">28</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="height: 448px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+       </div>
+      
+      <div class="code-tail not-allowed" style="display: block;">
+        
+        <textarea id="codetailview" style="width: 100%; display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 43px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 38px; min-height: 18px;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-vscrollbar" style="min-width: 18px; bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 38px; min-height: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>45</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 20px;">&nbsp;</div></div><div class="CodeMirror-code"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">29</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">f</span> = <span class="cm-builtin">open</span>(<span class="cm-variable">os</span>.<span class="cm-variable">environ</span>[<span class="cm-string">'OUTPUT_PATH'</span>], <span class="cm-string">'w'</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">30</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">31</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">32</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">_friends_cnt</span> = <span class="cm-builtin">int</span>(<span class="cm-builtin">raw_input</span>())</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">33</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">_friends_i</span>=<span class="cm-number">0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">34</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">_friends</span> = []</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">35</div><div class="CodeMirror-gutter-elt" style="left: 28px; width: 9px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-keyword">while</span> <span class="cm-variable">_friends_i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable">_friends_cnt</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">36</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">_friends_item</span> = <span class="cm-builtin">raw_input</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">37</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">_friends</span>.<span class="cm-variable">append</span>(<span class="cm-variable">_friends_item</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">38</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  <span class="cm-variable">_friends_i</span>+=<span class="cm-number">1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">39</div></div><pre class=""><span style="padding-right: 0.1px;"> &nbsp;  </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">40</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">41</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">res</span> = <span class="cm-variable">friendCircles</span>(<span class="cm-variable">_friends</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">42</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">f</span>.<span class="cm-variable">write</span>(<span class="cm-builtin">str</span>(<span class="cm-variable">res</span>) <span class="cm-operator">+</span> <span class="cm-string">"\n"</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">43</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">44</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-variable">f</span>.<span class="cm-variable">close</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -38px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">45</div></div><pre class=""><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 0px;"></div><div class="CodeMirror-gutters" style="height: 348px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+      </div> 
+      <div class="clearfix"></div>
+    </div>
+    <div id="codeeditor-statusbar" class="clearfix psA codeeditor_statusbar">
+      <span id="statusbar-mode"></span>
+      <div class="pull-right">
+        <span id="statusbar-line">Line: 7</span>
+        <span id="statusbar-col">Col: 1</span>
+        <span id="statusbar-count"></span>
+      </div>
+    </div>
+  </div>
+</div><div class="clearfix pmR pmL pmB plT fixed-hand1 codeshell-footer">
+  <div class="pull-right">
+    
+    
+    <button class="btn bb-compile msR " data-analytics="Compile and Test">Run Code</button>
+    
+    
+    <button class="btn btn-primary bb-submit ans-submit" data-analytics="Submit Code">Submit code &amp; Continue</button>
+    
+  </div>
+  <div class="pull-left inline">
+      
+      
+      
+      <div class="mmT">
+          <label for="customtestcase"><input type="checkbox" id="customtestcase"><span class="lmT msL">Test against custom input</span></label>
+          <textarea rows="5" id="custominput" style="display:none"></textarea>
+      </div>
+      
+  </div>
+</div></div>
+
+<div id="dllink" class="mdB"><a id="testcase-dl" aria-label="Download Test Cases" href="javascript:void(0);"><i class="icon--single icon-download"> Download sample testcases</i></a><small class="mlL"><em class="txt-alt-grey-dark">The input/output files have Unix line endings. Do not use Notepad to edit them on windows.</em></small></div>
+
+<div id="runstatus"></div>
+<div class="modal modal-huge" id="faq-modal">
+  <div class="modal-body"></div>
+</div>
+</div></div>
+      <div class="clear"></div>
+      
+    
+  </div><!-- end container-inner -->
+</div> <!-- end .container -->
+</div></div>
+    </div>
+    <footer class="page_footer fill-light footer" style="z-index:100; padding:5px;">
+        <div id="footer" class="container"><div class="footer"><div class="text-center fnt-sz-mid">
+
+</div>
+<div class="fnt-sz-small">
+  <center class="mmT mmB">
+    <a class="mdR mdL" href="https://www.hackerrank.com/aboutus" target="_blank">About</a>
+    <a class="mdR" href="https://www.hackerrank.com/privacy" target="_blank">Privacy policy</a>
+    <a class="mdR" href="https://www.hackerrank.com/work/tos" target="_blank">Terms of service</a>
+  <center>
+</center></center></div>
+
+</div></div>
+    </footer>
+    <div id="fullscreen-wrapper" style="display: none">
+        <div class="left-sidebar">
+            <div class="js-left-content psA"></div>
+        </div>
+        <div class="separator"></div>
+        <div class="right-sidebar">
+            <div class="js-right-content"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+    <!-- Load Jquery -->
+  <script src="./Two Sigma Code Test 1_files/base-acb746b38fbd815ee2286731e8196e5b.js"></script>
+  <!-- failsafe -->
+<script>
+ if (typeof(jQuery) != "function" && !jsCookies.get("jQueryError") && (window.location.href.split("jQueryError=1").length == 1)) {
+   // set 10 mins cookie
+   var current_cdn = jsCookies.get("cdn_url");
+   jsCookies.set("jQueryError", 1, 0, 0, 10);
+   jsCookies.set("cdn_url", 1, 0, -1);
+
+   // reload the page
+   separator = (window.location.href.split("?").length > 1) ? "&" : "?";
+   if (navigator.appName == "Microsoft Internet Explorer") {
+     window.document.execCommand('Stop');
+   } else {
+     window.stop();
+   }
+   window.location.href = window.location.href + separator + "jQueryError=1&current_cdn=" + encodeURIComponent(current_cdn);
+
+   //stop JavaScript execution
+   throw new Error("StopExec");
+ } else {
+   // if it worked, remove jQueryError
+   if (jsCookies.get("jQueryError")) {
+     jsCookies.set("jQueryError", 1, 0, -1);
+   }
+ }
+</script>
+
+
+    <script src="./Two Sigma Code Test 1_files/candidate_libraries-73e0f563235e18c5100dc823a7b435c6.js"></script>
+    <script src="./Two Sigma Code Test 1_files/candidate-be447045599f7754a4a1e5e2039ad127.js"></script>
+    <script src="./Two Sigma Code Test 1_files/set-manifest-24668edfad1f0e2c29cf7e26237321ef22d426a7.js"></script>
+    <script src="./Two Sigma Code Test 1_files/codeshell-abdad1fc90c4c3e87eda185f44148184.js"></script>
+
+
+
+
+<!-- jsCookies -->
+<script type="text/javascript">
+  if("undefined"==typeof jsCookies)var jsCookies={get:function(c_name){if(document.cookie.length>0){var c_start=document.cookie.indexOf(c_name+"=");if(-1!=c_start){c_start=c_start+c_name.length+1;var c_end=document.cookie.indexOf(";",c_start);return-1==c_end&&(c_end=document.cookie.length),unescape(document.cookie.substring(c_start,c_end))}}return""},set:function(c_name,value,expiredays,expirehours,expiremins,expiresecs){var exdate=new Date;exdate.setDate(exdate.getDate()+(expiredays||0)),exdate.setHours(exdate.getHours()+(expirehours||0)),exdate.setMinutes(exdate.getMinutes()+(expiremins||0)),exdate.setSeconds(exdate.getSeconds()+(expiresecs||0));var set_expire_time=!(null==expiredays&&null==expiresecs&&null==expiremins&&null==expirehours);document.cookie=c_name+"="+escape(value)+"; path=/"+(0==set_expire_time?"":"; expires="+exdate.toUTCString())},check:function(c_name){return c_name=jsCookies.get(c_name),null!=c_name&&""!=c_name?!0:!1}};
+</script>
+
+<script>
+</script>
+
+<!-- Totango Tracking Code -->
+<!-- End Totango Tracking Code -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  $(window).load(function() {
+    (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+  });
+</script>
+
+<!-- Mixpanel -->
+<script type="text/javascript">
+  var mixpanel = [];
+  var attrs = "disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+    for (var attribute in attrs) {
+        mixpanel[attrs[attribute]] = function () {};
+    }
+</script>
+
+<!-- HeapAnalytics -->
+<script type="text/javascript">
+  window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+t+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+   heap.load("547804831");
+    heap.identify({handle: jsCookies.get("hackerrank_mixpanel_token")});
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  window._fbq = window._fbq || [];
+</script>
+
+
+
+
+
+<!-- Some Black Magic for Internet Explorer -->
+
+<!--[if lt IE 10]>
+<script src="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/jquery-plugins/jQuery.XDomainRequest-08039259762439382d4a54fb5ff6a3de.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js" type="text/javascript"></script>
+<![endif]-->
+
+<!-- Chrome Frame for IE6 -->
+<!--[if lt IE 7 ]>
+ <script src="https://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script><script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+<script>
+    IE_BROWSER = true
+</script>
+<![endif]-->
+
+<!-- Track button clicks -->
+<script type="text/javascript">
+    $(document).on('click', 'a, button, input', null, function(e) {
+        src = $(e.currentTarget);
+        if (src.attr('data-analytics')) {
+            action = 'Click'; data = src.attr('data-analytics');
+        } else {
+            return;
+        }
+
+        // google analytics
+        _gaq.push(['_trackEvent', 'Events' , action, data])
+    });
+
+    $(document).on('AnalyticsEvent', function(e) {
+        action = e.event_type || false
+        data = e.event_name || false
+
+        if (!action || !data)
+          return
+
+        params = {}
+        params['attribute1'] = e.event_value || ""
+
+        if (window.HR && window.HR.current_page)
+          params['attribute2'] = window.HR.current_page
+
+        if (window.HR && window.HR.current_contest)
+          params['attribute3'] = window.HR.current_contest.get('name')
+
+        // google analytics
+        _gaq.push(['_trackEvent', 'Events' , action, data])
+    });
+</script>
+
+
+
+<div class="offline-ui     offline-ui-up "><div class="offline-ui-content" data-retry-in-value="null" data-retry-in-unit="null"></div><a href="" class="offline-ui-retry"></a></div><ul class="vakata-context"></ul><div id="jstree-marker" style="display: none;">&nbsp;</div><iframe id="hiddenDownloader" src="about:blank" style="display: none;"></iframe></body></html>

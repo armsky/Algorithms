@@ -16,27 +16,35 @@
 # Use two pointers to find loop in second list, remove the circle
 # O(m+n) time, O(1) space
 
+def getIntersectionNode(self, headA, headB):
+    if not headA or not headB:
+        return None
+    a = headA
+    b = headB
+    while a and b and a!= b:
+        a = a.next
+        b = b.next
+        if a == b:
+            return a
+        if not a: # circle it!
+            a = headB
+        if not b:
+            b = headA
+    return a
+
 """
 2. Reverse a linked list
 """
 # I. Iterative method
 def reverse(head):
-    if head is None or head.next is None:
-        return head
-    second = head.next
-    third = second.next
-    second.next = head
-    head.next = None
-
-    cur = third
-    pre = second
-    while cur is not None:
+    pre = None
+    cur = head
+    while cur:
         nex = cur.next
         cur.next = pre
         pre = cur
         cur = nex
-    head = pre
-    return head
+    return pre
 
 # II. Recursive method
 def reverse(cur):
@@ -49,6 +57,47 @@ def reverse(cur):
     cur.next.next = cur
     # Set "old" next pointer to None
     cur.next = None
+
+"""
+2.5 Sum two linked lists
+You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+"""
+# the digits are stored in reverse order
+def addTwoNumbers(self, a, b):
+    dummy = c = ListNode(0)
+    carry = 0
+    while a or b or carry:
+        if a:
+            carry += a.val
+            a = a.next
+        if b:
+            carry += b.val
+            b = b.next
+        carry, val = divmod(carry, 10)
+        c.next = ListNode(val)
+        c = c.next
+    return dummy.next
+
+# if the digits are stored in regular order
+def addTwoNumbers(a1, b1):
+    a = reverse(a1)
+    b = reverse(b1)
+    dummy = c = ListNode(0)
+    carry = 0
+    while a or b or carry:
+        if a:
+            carry += a.val
+            a = a.next
+        if b:
+            carry += b.val
+            b = b.next
+        carry, val = divmod(carry, 10)
+        c.next = ListNode(val)
+        c = c.next
+    return reverse(dummy.next)
+
 
 """
 3. Return the mth number in nth row in a pascal triangle

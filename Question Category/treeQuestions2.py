@@ -291,3 +291,25 @@ def invertTree(self, root):
         return root
     else:
         return None
+
+"""
+7. Binary Tree Maximum Path Sum
+Given a binary tree, find the maximum path sum. The path may start and end at any node in the tree.
+"""
+def maxPathSum(self, root):
+    # sinlgeSum could contain 0..n nodes
+    # maxSum must have at least 1 node
+    maxSum, singleSum = self.helper(root)
+    return maxSum
+
+def helper(self, root):
+    if not root:
+        # maxSum is globally max in tree, it must exist and must >= min_int
+        return -sys.maxint-1, 0
+    left = self.helper(root.left)
+    right = self.helper(root.right)
+    # singleSum must >= 0, because tree node may have value < 0
+    singleSum = max(left[1] + root.val, right[1] + root.val, 0)
+    maxSum = max(left[0], right[0], left[1] + right[1] + root.val)
+    return maxSum, singleSum
+
