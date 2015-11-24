@@ -352,3 +352,79 @@ def jump(self, nums):
             return -1
     return njump
 
+"""
+12. Palindrome Partitioning
+Given a string s, cut s into some substrings such that every substring is a palindrome.
+Return the minimum cuts needed for a palindrome partitioning of s.
+
+Example
+For example, given s = "aab",
+Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 cut.
+"""
+# O(n^2) time, O(n) space
+# Credit to: https://leetcode.com/discuss/53981/56-ms-python-with-explanation
+def minCut(self, s):
+    # acceleration
+    if s == s[::-1]: return 0
+    for i in range(1, len(s)):
+        if s[:i] == s[:i][::-1] and s[i:] == s[i:][::-1]:
+            return 1
+    # algorithm
+    cut = [x for x in range(-1,len(s))]  # cut numbers in worst case (no palindrome)
+    for i in range(len(s)):
+        r1, r2 = 0, 0
+        # use i as origin, and gradually enlarge radius if a palindrome exists
+        # odd palindrome
+        while i-r1 >= 0 and i+r1 < len(s) and s[i-r1] == s[i+r1]:
+            cut[i+r1+1] = min(cut[i+r1+1], cut[i-r1]+1)
+            r1 += 1
+        # even palindrome
+        while i-r2 >= 0 and i+r2+1 < len(s) and s[i-r2] == s[i+r2+1]:
+            cut[i+r2+2] = min(cut[i+r2+2], cut[i-r2]+1)
+            r2 += 1
+    return cut[-1]
+
+"""
+13. Longest common subsequence(LCS).
+Your code should return the length of LCS.
+
+For "ABCD" and "EDCA", the LCS is "A" (or "D", "C"), return 1.
+For "ABCD" and "EACB", the LCS is "AC", return 2.
+"""
+def longestCommonSubsequence(self, A, B):
+    if not A or not B:
+        return 0
+    m = len(A)
+    n = len(B)
+    # dp[i][j] means until A[i] and B[j] the LCS is
+    dp = [[0 for x in range(n+1)] for y in range(m+1)]
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if A[i-1] == B[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    return dp[m][n]
+
+"""
+14. Longest common substring.
+
+Return the length of it.
+
+Example
+Given A = "ABCD", B = "CBCE", return 2.
+
+Note
+The characters in substring should occur continuously in original string. This is different with subsequence.
+"""
+def longestCommonSubstring(self, A, B):
+    if not A or not B:
+        return 0
+    m = len(A)
+    n = len(B)
+    dp = [[0 for x in range(n+1)] for y in range(m+1)]
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if A[i-1] == B[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+    return max(map(max, dp))

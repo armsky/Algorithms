@@ -271,6 +271,12 @@ def isBalanced(root):
         and isBalanced(root.right):
             return True
     return False
+
+def height(node):
+    if node id None:
+        return 0
+    else:
+        return max(height(node.left), height(node.right)) + 1
 # II. O(n) optimization, calculate the height in same recursion
 height = 0
 def isBalanced(root, height):
@@ -334,8 +340,13 @@ def deepest(root):
 # If the right subtree is NULL, start from root and travel down
 # O(h) time. h is height
 def find_succ(root, node):
+    if not root:
+        return None
     if node.right != None:
-        return node.right
+        succ = node.right
+        while succ.left:
+            succ = succ.left
+        return succ
     while root is not None:
         if node.data < root.data
             succ = root

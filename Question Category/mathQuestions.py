@@ -89,4 +89,90 @@ def rand7():
         return rand7()
     else:
         return x
+"""
+4. Create class which stores big integers (of any length) and implement addition operation.
+"""
+class BigInt():
+
+    def __init__(self, num_str):
+        if num_str[0] != '-':
+            self.positive = True
+            self.intlist = [int(d) for d in num_str]
+        else:
+            self.positive = False
+            self.intlist = [int(d) for d in num_str[1:]]
+        self.intlist.reverse() # reverse() has NO return value!!!
+
+
+    def add(self, bigint):
+        if self.abs_bigger(bigint):
+            a = self.intlist
+            b = bigint.intlist
+            positive = self.positive
+        else:
+            a = bigint.intlist
+            b = self.intlist
+            positive = bigint.positive
+
+        if self.positive != bigint.positive:
+            return self.sub(a, b, positive)
+        m = len(a)
+        n = len(b)
+        carry = 0
+        for i in range(m):
+            if i < n:
+                carry, val = divmod(a[i]+b[i]+carry, 10)
+            else:
+                carry, val = divmod(a[i]+carry, 10)
+            a[i] = val
+        if carry > 0:
+            a.append(1)
+        return positive, a
+
+    def sub(self, a, b, positive):
+        m = len(a)
+        n = len(b)
+        carry = 0
+        for i in range(m):
+            if i < n:
+                if a[i] + carry >= b[i]:
+                    a[i] -= b[i]
+                    carry = 0
+                else:
+                    a[i] = a[i] + 10 - b[i]
+                    carry = -1
+            else:
+                if a[i] + carry >= 0:
+                    a[i] += carry
+                    carry = 0
+                else:
+                    a[i] = a[i] + 10 + carry
+                    carry = -1
+        if a[-1] == 0:
+            if len(a) != 1:
+                a = a[:-1]
+        return positive, a
+
+    def abs_bigger(self, bigint):
+        if len(self.intlist) > len(bigint.intlist):
+            return True
+        elif len(self.intlist) == len(bigint.intlist):
+            for i in range(len(self.intlist)):
+                if self.intlist[i] > bigint.intlist[i]:
+                    return True
+                elif self.intlist[i] < bigint.intlist[i]:
+                    return False
+            return True
+        else:
+            return False
+
+
+# test cases:
+print BigInt('0').add(BigInt('0'))
+print BigInt('0').add(BigInt('1'))
+print BigInt('1').add(BigInt('99'))
+print BigInt('100').add(BigInt('-1'))
+print BigInt('1').add(BigInt('-1'))
+print BigInt('-1').add(BigInt('-100'))
+print BigInt('-1').add(BigInt('100000'))
 
