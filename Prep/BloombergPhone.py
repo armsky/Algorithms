@@ -99,51 +99,61 @@ calculate the shortest path between each 0 to G, so result will be
 BGG
 G11
 """
+# 从G开始把周围元素加1，再从所有1开始把1周围的所有元素加1，一个队列就行了
 import Queue
-
-def shortest(matrix):
-    if not matrix:
-        return None
-    m = len(matrix)
-    n = len(matrix[0])
+def shortest(ma):
+    m = len(ma)
+    n = len(ma[0])
+    for i in range(m):
+        ma[i] = list(ma[i])
+    print ma
     for i in range(m):
         for j in range(n):
-            if matrix[i][j] == "0":
-                q = Queue.Queue()
-                q.put([i,j])
-                while q:
-                    i, j = q.get()
-                    mark(matrix, i, j, m, n, q)
-    print matrix
+            if ma[i][j] == 'G':
+                if valid(i-1, j, m, n, ma):
+                    ma[i-1][j] = 1
+                if valid(i+1, j, m, n, ma):
+                    ma[i+1][j] = 1
+                if valid(i, j-1, m, n, ma):
+                    ma[i][j-1] = 1
+                if valid(i, j+1, m, n, ma):
+                    ma[i][j+1] = 1
 
-def calculate(matrix, i, j, m, n, q):
-    if matrix[i][j] == "G":
-        return "1"
+            if ma[i][j] == '0':
+                ma[i][j] = 0
+
+    q = Queue.Queue()
+    for i in range(m):
+        for j in range(n):
+            if ma[i][j] == 1:
+                q.put((i,j))
+
+    while q.qsize() > 1:
+        i, j = q.get()
+        if valid(i-1, j, m, n, ma):
+            enqueue(i-1, j, i, j, ma, q)
+        if valid(i+1, j, m, n, ma):
+            enqueue(i+1, j, i, j, ma, q)
+        if valid(i, j-1, m, n, ma):
+            enqueue(i, j-1, i, j, ma, q)
+        if valid(i, j+1, m, n, ma):
+            enqueue(i, j+1, i, j, ma, q)
+    return ma
+
+def valid(i, j, m, n, ma):
+    if 0 <= i < m and 0 <= j < n:
+        if ma[i][j] != 'B' and ma[i][j] != 'G':
+            return True
+    return False
+
+def enqueue(i, j, x, y, ma, q):
+    if ma[i][j] == 0:
+        ma[i][j] = ma[x][y]+1
+        q.put((i, j))
     else:
-        return str(int(matrix[i][j]) + 1)
-    if i - 1 >= 0 and matrix[i-1][j] == "0":
-        calculate(matrix, i-1, j, m, n, q)
-
-def mark(matrix, i, j, m, n, q):
-    to_mark = []
-    if i - 1 >= 0:
-        to_mark.append([i-1, j])
-    if j - 1 >= 0:
-        to_mark.append([i, j-1])
-    if j + 1 < n:
-        to_mark.append([i, j+1])
-    if i + 1 < m:
-        to_mark.append([i+1, j])
-    print to_mark
-    for cor in to_mark:
-        if matrix[cor[0]][cor[1]] != "B" and matrix[cor[0]][cor[1]] != "G":
-            if matrix[cor[0]][cor[1]] == "0":
-                q.put([cor[0], cor[1]])
-            if matrix[i][j] == "G":
-                matrix[cor[0]][cor[1]] == "1"
-            else:
-                if int(matrix[cor[0]][cor[1]]) > int(matrix[i][j]) + 1:
-                    matrix[cor[0]][cor[1]] = str(int(matrix[i][j]) + 1)
+        if ma[x][y]+1 < ma[i][j]:
+            ma[i][j] = ma[x][y]+1
+            q.put((i, j))
 
 matrix = ["000",
 "BGG",
