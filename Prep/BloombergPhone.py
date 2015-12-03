@@ -52,9 +52,10 @@ A'---->B'--->C'---->D'---->E''
 }
  """
 # Ask question:
-# 1. Big loop? (last node.next point to another node
+# 1. Any loop? (A.jump = B, B.jump = A)
 # 2. Duplicates values?
 def copy_list(a):
+    # this only works when there is no loop
     b = Node(a)
     heada = a
     headb = b
@@ -73,6 +74,32 @@ def copy_list(a):
         a = a.next
         b = b.next
     return headb
+# This works for list with loop
+def copyRandomList2(self, head):
+    if not head:
+        return None
+    table = {}
+    dummy = RandomListNode(0)
+    b = RandomListNode(0)
+    a = head
+    pre = dummy
+    dummy.next = b
+    while a:
+        if a in table:
+            b = table[a]
+        else:
+            b = RandomListNode(a.label)
+            table[a] = b
+        pre.next = b
+        if a.random:
+            if a.random in table:
+                b.random = table[a.random]
+            else:
+                b.random = RandomListNode(a.random.label)
+                table[a.random] = b.random
+        pre = pre.next
+        a = a.next
+    return dummy.next
 
 
 """
@@ -238,22 +265,29 @@ isMatch("ab", "?*") → true
 isMatch("aab", "c*a*b") → false
 """
 def isMatch(self, s, p):
-    length = len(s)
-    if len(p) - p.count('*') > length:
-        return False
-    dp = [True] + [False]*length
-    for i in p:
-        if i != '*':
-            for n in reversed(range(length)):
-                dp[n+1] = dp[n] and (i == s[n] or i == '?')
+    si, pi, match = 0, 0, 0
+    stari = -1
+    while si<len(s):
+        # advancing both pointers
+        if pi<len(p) and (p[pi] == '?' or s[si] == p[pi]):
+            si += 1
+            pi += 1
+        # * found, only advancing pattern pointer
+        elif pi < len(p) and p[pi] == '*':
+            stari = pi
+            match = si
+            pi += 1
+        # current pattern pointer is not star, last pattern pointer was not *
+        # characters do not match
+        elif stari != -1:
+            pi = stari + 1
+            match += 1
+            si = match
         else:
-            for n in range(1, length+1):
-                dp[n] = dp[n-1] or dp[n]
-        dp[0] = dp[0] and i == '*'
-    return dp[-1]
-#dp[n] means the substring s[:n] if match the pattern i
-#dp[0] means the empty string '' or s[:0] which only match the pattern '*'
-#use the reversed builtin because for every dp[n+1] we use the previous 'dp'
+            return False
+    while pi < len(p) and p[pi] == '*':
+        pi += 1
+    return pi == len(p)
 
 """
 9. Longest Substring Without Repeating Characters
@@ -271,7 +305,6 @@ def lengthOfLongestSubstring(self, s):
             re = re[j+1:] + s[i]
         if len(re) > m:
             m = len(re)
-
     return m
 
 """
@@ -402,7 +435,7 @@ NOTE:
 # @return a float
 
 # Recursive
-def pow(self, x, n):
+def myPow(self, x, n):
     if n == 0:
         return 1
     if n < 0:
