@@ -220,6 +220,24 @@ After calling your function, the tree should look like:
      / \  / \
     4->5->6->7 -> NULL
 """
+def connect(self, root):
+    """
+    :type root: TreeLinkNode
+    :rtype: nothing
+    """
+    if not root:
+        return
+    pre = root
+    node = None
+    while pre.left:
+        cur = pre
+        while cur:
+            cur.left.next = cur.right
+            if cur.next:
+                cur.right.next = cur.next.left
+            cur = cur.next
+
+        pre = pre.left
 # This works for all binary tree (not just perfect binary tree)
 # But this is not using constant space
 def connect(self, root):
@@ -244,29 +262,6 @@ def connect(self, root):
                 ss.extend([None, None])
         so = ss
         ss = []
-
-# A real solution meets the requirements.
-def connect(self, root):
-    """
-    :type root: TreeLinkNode
-    :rtype: nothing
-    """
-    if not root:
-        return
-    pre = root
-    node = None
-    while pre.left:
-        cur = pre
-        while cur:
-            cur.left.next = cur.right
-            if cur.next:
-                cur.right.next = cur.next.left
-            else:
-                cur.right.next = None
-            cur = cur.next
-
-        pre = pre.left
-
 """
 6. Invert Binary Tree
 Invert a binary tree.

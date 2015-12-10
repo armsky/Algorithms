@@ -192,4 +192,32 @@ class Solution:
             right *= nums[i]
             result[i-1] *= right
         return result
+"""
+12. Fast exponentiation calculation
+"""
+# 1. n can be negative; 0^0 = 1, 0^positive = 0, 0^negetive nonsence
+# 2. x^n = x^n/2 * x^n/2 * x^n%2
+# Recusive
+def pow(self, x, n):
+    if n == 0:
+        return 1
+    if n < 0:
+        return 1 / self.pow(x, -n)
+    if n % 2 == 1:
+        return x * self.pow(x, n-1)
+    return self.pow(x*x, n/2)
 
+# Iterative
+def pow(self, x, n):
+    if n == 0:
+        return 1
+    if n < 0:
+        x = 1/x
+        n = -n
+    re = 1
+    while n:
+        if n & 1 == 1:
+            re *= x
+        x *= x
+        n = n >> 1
+    return re

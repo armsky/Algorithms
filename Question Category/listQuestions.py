@@ -291,3 +291,23 @@ def partition(self, head, x):
     right.next = None # Important !!!
     left.next = rdummy.next
     return ldummy.next
+
+"""
+9. Linked List Cycle
+Return the node where cycle begins, do not use extra space
+"""
+# Can use hashtable to solve this if extra space is allowed
+def detectCycle(self, head):
+    if not head or not head.next:
+        return None
+    a = head
+    b = head.next
+    while a != b:
+        if not b or not b.next:
+            return None
+        a = a.next
+        b = b.next.next
+    while head != a.next:
+        head = head.next
+        a = a.next
+    return head

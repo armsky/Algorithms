@@ -56,11 +56,11 @@ def quicksort(a, left, right):
             i = i + 1
         while (a[j] > pivot):
             j = j - 1
+        # this if statement is important!!!
         if (i <= j):
-            # swap a[i], a[j]
             a[i], a[j] = a[j], a[i]
-            i = i + 1
-            j = j - 1
+            i += 1
+            j -= 1
 
     if (left < j):
         quicksort(a, left, j)
